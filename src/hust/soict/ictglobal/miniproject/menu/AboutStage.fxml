@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" prefHeight="138.0" prefWidth="193.0" text="We are: " textAlignment="CENTER">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <Label layoutX="159.0" layoutY="108.0" prefHeight="61.0" prefWidth="283.0" text="Nguyễn Đức Anh">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="159.0" layoutY="291.0" prefHeight="61.0" prefWidth="283.0" text="Phạm Lê Đức">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="360.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="360.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+             <!--use backgroundLoading to load the image to the stage-->
+            <Image url="@../images/PTK_0154.jpg"
+                   backgroundLoading="true"             
+            />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.menu.MenuController">
+    <children>
+        <Button fx:id="thirdBtnLaw" alignment="CENTER" layoutX="340.0" layoutY="355.0" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="Third law">
+         <effect>
+            <Glow />
+         </effect></Button>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <MenuBar fx:id="menu" prefHeight="32.0" prefWidth="810.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="closeItem" mnemonicParsing="false" onAction="#handleClosedClick" text="Close">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#handleAboutClick" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label alignment="CENTER" layoutX="311.0" layoutY="79.0" prefHeight="103.0" prefWidth="158.0" text="NEWTON" textAlignment="RIGHT" textFill="#f54b4b">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="secondBtnLaw" alignment="CENTER" layoutX="340.0" layoutY="298.0" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="Second law">
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+      <Button fx:id="firstBtnLaw" alignment="CENTER" layoutX="340.0" layoutY="247.0" onAction="#handleFirstLawClick" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="First law">
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+      <Button fx:id="startButton" alignment="CENTER" layoutX="340.0" layoutY="191.0" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="Start">
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+    </children>
+</AnchorPane>
