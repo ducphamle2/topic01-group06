@@ -21,7 +21,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="closeItem" mnemonicParsing="false" onAction="#handleClosedClick" text="Close">
+              <MenuItem fx:id="closeItem" mnemonicParsing="false" onAction="#handleClosedBtnClick" text="Close">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
@@ -29,7 +29,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#handleAboutClick" text="About" />
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#handleAboutBtnClick" text="About" />
             </items>
           </Menu>
         </menus>
@@ -44,7 +44,7 @@
             <Glow />
          </effect>
       </Button>
-      <Button fx:id="firstBtnLaw" alignment="CENTER" layoutX="340.0" layoutY="247.0" onAction="#handleFirstLawClick" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="First law">
+      <Button fx:id="firstBtnLaw" alignment="CENTER" layoutX="340.0" layoutY="247.0" onAction="#handleFirstLawBtnClick" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="First law">
          <effect>
             <Glow />
          </effect>

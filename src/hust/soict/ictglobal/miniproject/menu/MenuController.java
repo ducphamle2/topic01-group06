@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 
 import hust.soict.ictglobal.miniproject.firstlaw.FirstLawController;
+import hust.soict.ictglobal.miniproject.start.StartBtnWindowController;
+import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,27 +37,28 @@ public class MenuController implements Initializable {
     private Button startButton;
 
     @FXML
-    public void onMouseClicked(MouseEvent e) {
+    public void onMouseClicked(MouseEvent e) throws IOException {
         if (e.getSource().equals(startButton)) { //get source here to find the source that causes the event
             firstBtnLaw.setDisable(false);
             secondBtnLaw.setDisable(false);
             thirdBtnLaw.setDisable(false);
+            new StartBtnWindowController().openNewWindow();
         }
         System.out.println("Clicked");
     }
 
     @FXML
-    public void handleClosedClick() {
+    public void handleClosedBtnClick() {
         System.exit(0);
     }
 
     @FXML
-    public void handleFirstLawClick() {
+    public void handleFirstLawBtnClick() {
         new FirstLawController().openNewWindow();
     }
 
     @FXML
-    public void handleAboutClick() {
+    public void handleAboutBtnClick() {
         Stage stage = new Stage();
         // create a new window using FirstLaw gui
         try {
