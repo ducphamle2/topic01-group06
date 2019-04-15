@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
@@ -21,18 +22,24 @@ import javafx.scene.layout.StackPane;
  *
  * @author Duc Pham Le
  */
-public class SecondSceneController implements Initializable {
+public class FinalSceneController implements Initializable {
 
     @FXML
     private StackPane parentContainer;
 
-    @FXML
-    private Button nextButton;
+    private LoadScene sceneLoader = null;
 
     @FXML
     private Button prevButton;
 
-    private LoadScene sceneLoader = null;
+    @FXML
+    private Label firstText;
+
+    @FXML
+    private Label secondText;
+
+    @FXML
+    private Label thirdText;
 
     private boolean flag;
 
@@ -41,7 +48,30 @@ public class SecondSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        firstText.setOpacity(0);
         flag = false;
+        // TODO
+        // transition for diving & diving text
+
+        FadeTransition fadeTransition = FadedTransition.transition(1, 0, 1);
+        fadeTransition.setNode(firstText);
+        fadeTransition.play();
+
+        fadeTransition = FadedTransition.transition(7, 1, 0);
+        fadeTransition.setNode(firstText);
+        fadeTransition.play();
+
+        fadeTransition = FadedTransition.transition(8, 0, 1);
+        fadeTransition.setNode(secondText);
+        fadeTransition.play();
+
+        fadeTransition = FadedTransition.transition(14, 1, 0);
+        fadeTransition.setNode(secondText);
+        fadeTransition.play();
+
+        fadeTransition = FadedTransition.transition(15, 0, 1);
+        fadeTransition.setNode(thirdText);
+        fadeTransition.play();
     }
 
     public void handleBtnClick(ActionEvent e) {
@@ -49,22 +79,16 @@ public class SecondSceneController implements Initializable {
             sceneLoader = new LoadScene();
             FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
-            if (e.getSource().equals(nextButton)) {
+            if (e.getSource().equals(prevButton)) {
                 flag = true;
+                fadeTransition.play(); // play transition
                 fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("ThirdScene.fxml", parentContainer);
-                });
-            } else if (e.getSource().equals(prevButton)) {
-                flag = true;
-                fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("StartBtnWindow.fxml", parentContainer);
+                    sceneLoader.loadScene("SeventhScene.fxml", parentContainer);
                 });
             } else {
                 System.out.println("Error in button clicked");
             }
-            fadeTransition.play(); // play transition
         }
-
     }
 
     public void handleKeyTyped(KeyEvent e) {
@@ -75,19 +99,10 @@ public class SecondSceneController implements Initializable {
             // go back to prev scene
             if (e.getCode() == KeyCode.LEFT) {
                 flag = true;
-                fadeTransition.play(); // play transition
                 System.out.println("Left arrow pressed");
-                fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("StartBtnWindow.fxml", parentContainer);
-                });
-            }
-            // go forward
-            if (e.getCode() == KeyCode.RIGHT) {
-                flag = true;
                 fadeTransition.play(); // play transition
-                System.out.println("right arrow pressed");
                 fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("ThirdScene.fxml", parentContainer);
+                    sceneLoader.loadScene("SeventhScene.fxml", parentContainer);
                 });
             }
         }

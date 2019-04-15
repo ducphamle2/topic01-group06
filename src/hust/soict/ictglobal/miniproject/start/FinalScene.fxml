@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="parentContainer" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyTyped" prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.FinalSceneController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: FFFFFF;">
+         <children>
+            <ImageView fitHeight="710.0" fitWidth="1266.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/newton_two.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="prevButton" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" />
+            <Label fx:id="firstText" layoutX="181.0" layoutY="515.0" prefHeight="166.0" prefWidth="758.0" text="He died in his sleep on 31 March 1727, and was buried in Westminster Abbey. " textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <Label fx:id="secondText" layoutX="134.0" layoutY="487.0" opacity="0.0" prefHeight="223.0" prefWidth="878.0" text="After his death, Newton's hair was examined and found to contain mercury, probably resulting from his alchemical pursuits." textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <Label fx:id="thirdText" layoutX="230.0" layoutY="515.0" opacity="0.0" prefHeight="166.0" prefWidth="687.0" text="Mercury poisoning could explain Newton's eccentricity in late life..." textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

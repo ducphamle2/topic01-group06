@@ -20,6 +20,8 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
 /**
@@ -32,12 +34,14 @@ public class StartBtnWindowController implements Initializable {
     @FXML
     private StackPane parentContainer;
 
+    private boolean flag;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        flag = false;
     }
 
     public void openNewWindow() throws IOException {
@@ -49,6 +53,7 @@ public class StartBtnWindowController implements Initializable {
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL); // prevent from using the main windows
+            stage.setTitle("Biography of Issac Newton");
             stage.show();
 
         } catch (Exception e) {
@@ -58,17 +63,20 @@ public class StartBtnWindowController implements Initializable {
 
     @FXML
     public void handleButtonClick(ActionEvent event) { // this catches the event when clicking the next button
-        makeFadeOut();
+        if (!flag) {
+            makeFadeOut();
+            flag = true;
+        }
     }
 
     private void makeFadeOut() {
         // using fade transition to fade to another scene
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDelay(Duration.seconds(1)); // fade after 1 sec
-        fadeTransition.setNode(parentContainer); 
+        fadeTransition.setNode(parentContainer);
         fadeTransition.setFromValue(1); // this is opacity, from 1 to 0 means from clearest to disappear
         fadeTransition.setToValue(0);
-        
+
         // load another scene after finishing fading
         fadeTransition.setOnFinished((ActionEvent event) -> {
             loadNextScene();
@@ -88,6 +96,23 @@ public class StartBtnWindowController implements Initializable {
             curStage.setScene(newScene);
         } catch (IOException ex) {
             Logger.getLogger(StartBtnWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void handleKeyTyped(KeyEvent e) {
+        if (!flag) {
+            LoadScene sceneLoader = new LoadScene();
+            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            fadeTransition.setNode(parentContainer);
+            // go forward
+            if (e.getCode() == KeyCode.RIGHT) {
+                flag = true;
+                System.out.println("right arrow pressed");
+                fadeTransition.play(); // play transition
+                fadeTransition.setOnFinished((ActionEvent event) -> {
+                    sceneLoader.loadScene("SecondScene.fxml", parentContainer);
+                });
+            }
         }
     }
 }

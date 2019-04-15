@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="parentContainer" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyTyped" onMouseClicked="#handleMouseClicked" prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.ThirdSceneController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: FFFFFF;">
+         <children>
+            <Button fx:id="prevButton" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" />
+            <Button fx:id="nextButton" layoutX="1200.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleBtnClick" text="Next" />
+            <ImageView fx:id="motherKid" fitHeight="335.0" fitWidth="226.0" layoutX="286.0" layoutY="210.0" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/woman_holding_baby.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="house" fitHeight="407.0" fitWidth="388.0" layoutX="671.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/vintage_house.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="grandparents" fitHeight="261.0" fitWidth="216.0" layoutX="340.0" layoutY="320.0" onMouseClicked="#handleMouseClicked" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/kid_with_grandparents.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="couple" fitHeight="261.0" fitWidth="166.0" layoutX="873.0" layoutY="320.0" onMouseClicked="#handleMouseClicked" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/young_couple.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="city" fitHeight="245.0" fitWidth="396.0" layoutX="771.0" layoutY="38.0" onMouseClicked="#handleMouseClicked" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/city.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="textbox" fitHeight="206.0" fitWidth="210.0" layoutX="425.0" layoutY="142.0" onMouseClicked="#handleMouseClicked" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/chatbox.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="text" layoutX="477.0" layoutY="202.0" onMouseClicked="#handleMouseClicked" opacity="0.0" prefHeight="61.0" prefWidth="105.0" text="&quot;Let's go boy&quot;">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="181.0" layoutY="568.0" prefHeight="128.0" prefWidth="900.0" text="His mother remarried when Issac was 3 years old and left him in the care of his grandparents" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

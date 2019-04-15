@@ -12,6 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
@@ -21,10 +23,12 @@ import javafx.scene.layout.StackPane;
  *
  * @author Duc Pham Le
  */
-public class SecondSceneController implements Initializable {
+public class SeventhSceneController implements Initializable {
 
     @FXML
     private StackPane parentContainer;
+
+    private LoadScene sceneLoader = null;
 
     @FXML
     private Button nextButton;
@@ -32,7 +36,23 @@ public class SecondSceneController implements Initializable {
     @FXML
     private Button prevButton;
 
-    private LoadScene sceneLoader = null;
+    @FXML
+    private Label text;
+
+    @FXML
+    private Label divingText;
+
+    @FXML
+    private Label collisionText;
+
+    @FXML
+    private ImageView diving;
+
+    @FXML
+    private ImageView friction;
+
+    @FXML
+    private ImageView collision;
 
     private boolean flag;
 
@@ -41,7 +61,42 @@ public class SecondSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
         flag = false;
+        diving.setOpacity(0);
+        friction.setOpacity(0);
+        collision.setOpacity(0);
+        divingText.setOpacity(0);
+        collisionText.setOpacity(0);
+        text.setOpacity(0);
+
+        // transition for text
+        FadeTransition fadeTransition = FadedTransition.transition(0, 0, 1);
+        fadeTransition.setNode(text);
+        fadeTransition.play();
+
+        // transition for diving & diving text
+        fadeTransition = FadedTransition.transition(2, 0, 1);
+        fadeTransition.setNode(diving);
+        fadeTransition.play();
+
+        fadeTransition = FadedTransition.transition(2, 0, 1);
+        fadeTransition.setNode(divingText);
+        fadeTransition.play();
+
+        // transition for collision & collision text
+        fadeTransition = FadedTransition.transition(4, 0, 1);
+        fadeTransition.setNode(collision);
+        fadeTransition.play();
+
+        fadeTransition = FadedTransition.transition(4, 0, 1);
+        fadeTransition.setNode(collisionText);
+        fadeTransition.play();
+
+        // transition for friction
+        fadeTransition = FadedTransition.transition(6, 0, 1);
+        fadeTransition.setNode(friction);
+        fadeTransition.play();
     }
 
     public void handleBtnClick(ActionEvent e) {
@@ -51,20 +106,20 @@ public class SecondSceneController implements Initializable {
             fadeTransition.setNode(parentContainer);
             if (e.getSource().equals(nextButton)) {
                 flag = true;
+                fadeTransition.play(); // play transition
                 fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("ThirdScene.fxml", parentContainer);
+                    sceneLoader.loadScene("FinalScene.fxml", parentContainer);
                 });
             } else if (e.getSource().equals(prevButton)) {
                 flag = true;
+                fadeTransition.play(); // play transition
                 fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("StartBtnWindow.fxml", parentContainer);
+                    sceneLoader.loadScene("SixthScene.fxml", parentContainer);
                 });
             } else {
                 System.out.println("Error in button clicked");
             }
-            fadeTransition.play(); // play transition
         }
-
     }
 
     public void handleKeyTyped(KeyEvent e) {
@@ -75,21 +130,20 @@ public class SecondSceneController implements Initializable {
             // go back to prev scene
             if (e.getCode() == KeyCode.LEFT) {
                 flag = true;
-                fadeTransition.play(); // play transition
                 System.out.println("Left arrow pressed");
                 fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("StartBtnWindow.fxml", parentContainer);
+                    sceneLoader.loadScene("SixthScene.fxml", parentContainer);
                 });
             }
             // go forward
             if (e.getCode() == KeyCode.RIGHT) {
                 flag = true;
-                fadeTransition.play(); // play transition
                 System.out.println("right arrow pressed");
                 fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("ThirdScene.fxml", parentContainer);
+                    sceneLoader.loadScene("FinalScene.fxml", parentContainer);
                 });
             }
+            fadeTransition.play(); // play transition
         }
     }
 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="parentContainer" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.SecondSceneController">
+<StackPane fx:id="parentContainer" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyTyped" prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.SecondSceneController">
    <children>
       <ImageView fitHeight="713.0" fitWidth="1376.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -25,9 +25,9 @@
             <Insets left="20.0" top="20.0" />
          </StackPane.margin>
       </Button>
-      <Label prefHeight="150.0" prefWidth="1150.0" text="His father was a farmer, and he died 3 months prior to Newton’s birth" textFill="WHITE" wrapText="true" StackPane.alignment="BOTTOM_CENTER">
+      <Label prefHeight="150.0" prefWidth="727.0" text="His father was a farmer, and he died 3 months prior to Newton’s birth" textFill="WHITE" wrapText="true" StackPane.alignment="BOTTOM_CENTER">
          <font>
-            <Font name="System Bold" size="33.0" />
+            <Font name="System Bold" size="42.0" />
          </font>
          <StackPane.margin>
             <Insets top="350.0" />
