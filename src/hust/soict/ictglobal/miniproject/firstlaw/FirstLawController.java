@@ -5,12 +5,18 @@
  */
 package hust.soict.ictglobal.miniproject.firstlaw;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -20,6 +26,11 @@ import javafx.stage.Stage;
  * @author Duc Pham Le
  */
 public class FirstLawController implements Initializable {
+    @FXML
+    private AnchorPane scene;
+
+    @FXML
+    private Button startBtn;
 
     /**
      * Initializes the controller class.
@@ -43,6 +54,16 @@ public class FirstLawController implements Initializable {
             
         }
         catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void openDemo(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("FirstLawDemo.fxml"));
+            scene.getScene().setRoot(root);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

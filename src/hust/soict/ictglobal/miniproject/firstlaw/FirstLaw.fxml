@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.firstlaw.FirstLawController">
+<AnchorPane id="AnchorPane" fx:id="scene" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.firstlaw.FirstLawController">
    <children>
       <Label layoutX="24.0" layoutY="35.0" text="Newton's first law">
          <font>
@@ -17,7 +17,7 @@
          </font>
       </Label>
       <Label layoutX="24.0" layoutY="83.0" prefHeight="32.0" prefWidth="532.0" text="In an inertial frame of reference, an object either remains at rest or continues to move at a constant velocity, unless acted upon by a force" wrapText="true" />
-      <Button fx:id="startBtn" layoutX="255.0" layoutY="301.0" mnemonicParsing="false" text="Demo">
+      <Button fx:id="startBtn" onAction="#openDemo" layoutX="255.0" layoutY="301.0" mnemonicParsing="false" text="Demo">
          <font>
             <Font size="16.0" />
          </font>
