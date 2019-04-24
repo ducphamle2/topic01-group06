@@ -51,7 +51,8 @@ public class StartBtnWindowController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("StartBtnWindow.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setResizable(false);
+            stage.setMaximized(true);
+            //stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL); // prevent from using the main windows
             stage.setTitle("Biography of Issac Newton");
             stage.show();
@@ -72,7 +73,7 @@ public class StartBtnWindowController implements Initializable {
     private void makeFadeOut() {
         // using fade transition to fade to another scene
         FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDelay(Duration.seconds(1)); // fade after 1 sec
+        fadeTransition.setDelay(Duration.seconds(0)); // fade after 1 sec
         fadeTransition.setNode(parentContainer);
         fadeTransition.setFromValue(1); // this is opacity, from 1 to 0 means from clearest to disappear
         fadeTransition.setToValue(0);
@@ -102,7 +103,7 @@ public class StartBtnWindowController implements Initializable {
     public void handleKeyTyped(KeyEvent e) {
         if (!flag) {
             LoadScene sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
             // go forward
             if (e.getCode() == KeyCode.RIGHT) {

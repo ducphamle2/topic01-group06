@@ -46,6 +46,7 @@ public class FirstLawDemoController implements Initializable {
         if (this.forceLevel < 5) {
             this.forceLevel++;
         }
+        System.out.println("force level push right: " + this.forceLevel);
         setTransition();
     }
 
@@ -54,25 +55,30 @@ public class FirstLawDemoController implements Initializable {
         if (this.forceLevel > -5) {
             this.forceLevel--;
         }
+        System.out.println("force level push left: " + this.forceLevel);
         setTransition();
     }
 
     private void setTransition() {
-        if (this.forceLevel == 0) {
-            rollingText.setOpacity(0);
-            stationaryText.setOpacity(1);
-        } else {
-            rollingText.setOpacity(1);
-            stationaryText.setOpacity(0);
-        }
         if (this.currentRotation != null) {
+            System.out.println("current rotation is not null now");
             this.currentRotation.stop();
+            //this.currentRotation.pause();
         }
         if (this.currentTransition != null) {
-            currentAnimationTime = this.currentTransition.getStatus().equals(Animation.Status.STOPPED) ? Duration.millis(1).subtract(currentAnimationTime) : this.currentTransition.getCurrentTime().divide(this.currentTransition.getDuration().toMillis());
+            System.out.println("current transition is not null now");
+            System.out.println("status: " + this.currentTransition.getStatus().name());
+            currentAnimationTime = this.currentTransition.getStatus().equals(Animation.Status.STOPPED) ? currentAnimationTime : this.currentTransition.getCurrentTime().divide(this.currentTransition.getDuration().toMillis());
+            System.out.println("current animation time in this.currentTransition: " + currentAnimationTime);
             this.currentTransition.stop();
+            //this.currentRotation.pause();
         }
         if (this.forceLevel != 0) {
+            // set text opacity
+            rollingText.setOpacity(1);
+            stationaryText.setOpacity(0);
+            
+            //init rotateTranslation with a duration
             RotateTransition rotateTransition = new RotateTransition(Duration.millis(5000 / Math.abs(this.forceLevel)), wheel);
             rotateTransition.setCycleCount(Animation.INDEFINITE);
             rotateTransition.setInterpolator(Interpolator.LINEAR);
@@ -80,19 +86,29 @@ public class FirstLawDemoController implements Initializable {
             rotateTransition.play();
             this.currentRotation = rotateTransition;
 
+            //init translateTransition with a duration and a node wheel
             TranslateTransition translateTransition = new TranslateTransition(Duration.millis(5000 / Math.abs(this.forceLevel)), wheel);
-            translateTransition.setCycleCount(Animation.INDEFINITE);
-            translateTransition.setInterpolator(Interpolator.LINEAR);
+            translateTransition.setCycleCount(Animation.INDEFINITE); // infinite loop here
+            translateTransition.setInterpolator(Interpolator.LINEAR); // going in linear - straight line
+            
             if (this.forceLevel > 0) {
-                translateTransition.setFromX(scene.getLayoutBounds().getMaxX() / -2);
-                translateTransition.setToX(scene.getLayoutBounds().getMaxX() / 2);
+                // use to get get out of the scene and then come back in the opposite position
+                translateTransition.setFromX(scene.getLayoutBounds().getMaxX() / -1.75);
+                translateTransition.setToX(scene.getLayoutBounds().getMaxX() / 1.75);
             } else {
-                translateTransition.setFromX(scene.getLayoutBounds().getMaxX() / 2);
-                translateTransition.setToX(scene.getLayoutBounds().getMaxX() / -2);
+                translateTransition.setFromX(scene.getLayoutBounds().getMaxX() / 1.75);
+                translateTransition.setToX(scene.getLayoutBounds().getMaxX() / -1.75);
             }
-            translateTransition.jumpTo(currentAnimationTime != null ? currentAnimationTime.multiply(translateTransition.getDuration()) : Duration.millis(2500));
-            translateTransition.play();
+            Double duration = translateTransition.getDuration().toMillis();
+            System.out.println("Current duration of translate transition: " + translateTransition.getDuration().toMillis());
+            translateTransition.playFrom(currentAnimationTime != null ? currentAnimationTime.multiply(duration) : Duration.millis(2500));
+            //translateTransition.play();
             this.currentTransition = translateTransition;
+        }
+        else {
+            // set text again
+            rollingText.setOpacity(0);
+            stationaryText.setOpacity(1);
         }
     }
 

@@ -47,7 +47,7 @@ public class SecondSceneController implements Initializable {
     public void handleBtnClick(ActionEvent e) {
         if (!flag) {
             sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
             if (e.getSource().equals(nextButton)) {
                 flag = true;
@@ -70,7 +70,7 @@ public class SecondSceneController implements Initializable {
     public void handleKeyTyped(KeyEvent e) {
         if (!flag) {
             sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
             // go back to prev scene
             if (e.getCode() == KeyCode.LEFT) {
