@@ -36,11 +36,8 @@ public class LoadScene {
             if (secondView == null) {
                 System.out.println("Second view is null due to getResource wrong input: " + scene);
             }
-            Scene newScene = new Scene(secondView); // setup the scene
-            System.out.println("After newScene");
-            Stage curStage = (Stage) parentContainer.getScene().getWindow(); // get the current stage and set our new scene
-            System.out.println("After curStage");
-            curStage.setScene(newScene);
+            parentContainer.getScene().setRoot(secondView);
+            //curStage.setScene(newScene);
         } catch (IOException ex) {
             Logger.getLogger(StartBtnWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
