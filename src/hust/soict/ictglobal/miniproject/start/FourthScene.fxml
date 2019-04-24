@@ -1,49 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <StackPane fx:id="parentContainer" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyTyped" prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.FourthSceneController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="1266.0" style="-fx-background-color: FFFFFF;">
+      <GridPane style="-fx-background-color: FFFFFF;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="80.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="80.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="90.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="90.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="90.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Button fx:id="prevButton" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" />
-            <Button fx:id="nextButton" layoutX="1200.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleBtnClick" text="Next" AnchorPane.rightAnchor="14.0" />
-            <Label fx:id="text" layoutX="40.0" layoutY="591.0" prefHeight="128.0" prefWidth="1107.0" text="During his teenage years, he attended the King’s school, Grantham which taught him Latin &amp; Greeks, mathematics" wrapText="true" AnchorPane.bottomAnchor="-9.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="119.0" AnchorPane.topAnchor="591.0">
-               <font>
-                  <Font name="System Bold" size="40.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="kidStudying" fitHeight="418.0" fitWidth="777.0" layoutX="237.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-8.92498779296875" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="425.0" AnchorPane.topAnchor="311.0">
+            <Button fx:id="prevButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" GridPane.valignment="TOP" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Next" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+            <ImageView fx:id="kidStudying" fitHeight="298.0" fitWidth="616.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="0" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="BASELINE" GridPane.vgrow="SOMETIMES">
                <image>
                   <Image url="@../images/children_studying.png" />
                </image>
                <viewport>
                   <Rectangle2D />
                </viewport>
+               <GridPane.margin>
+                  <Insets left="60.0" top="30.0" />
+               </GridPane.margin>
             </ImageView>
-            <ImageView fx:id="school" fitHeight="531.0" fitWidth="375.0" layoutX="964.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="85.0">
+            <ImageView fx:id="school" fitHeight="454.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
                <image>
                   <Image url="@../images/school.jpg" />
                </image>
+               <GridPane.margin>
+                  <Insets bottom="100.0" left="300.0" />
+               </GridPane.margin>
             </ImageView>
-            <ImageView fx:id="latin" fitHeight="176.0" fitWidth="518.0" layoutX="87.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="834.0" AnchorPane.topAnchor="92.0">
+            <ImageView fx:id="latin" fitHeight="176.0" fitWidth="518.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
                <image>
                   <Image url="@../images/latin.png" />
                </image>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
             </ImageView>
-            <ImageView fx:id="math" fitHeight="199.0" fitWidth="294.0" layoutX="720.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="425.0" AnchorPane.topAnchor="92.0">
+            <ImageView fx:id="math" fitHeight="184.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <image>
                   <Image url="@../images/math.png" />
                </image>
+               <GridPane.margin>
+                  <Insets top="120.0" />
+               </GridPane.margin>
             </ImageView>
+            <Label fx:id="text" prefHeight="128.0" prefWidth="1158.0" text="During his teenage years, he attended the King’s school, Grantham which taught him Latin &amp; Greeks, mathematics" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="100.0" />
+               </GridPane.margin>
+            </Label>
          </children>
-      </AnchorPane>
+      </GridPane>
    </children>
 </StackPane>

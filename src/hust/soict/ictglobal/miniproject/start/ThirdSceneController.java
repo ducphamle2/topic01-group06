@@ -82,8 +82,8 @@ public class ThirdSceneController implements Initializable {
             line.setStartY(203);
             line.setEndX(x - 720);
             line.setEndY(y + 150);
-            house.setFitHeight(house.getFitHeight() - 110);
-            house.setFitWidth(house.getFitWidth() - 110);
+            house.setFitHeight(house.getFitHeight() - 60);
+            house.setFitWidth(house.getFitWidth() - 60);
 
             System.out.println("after creating polyline");
             PathTransition transition = new PathTransition();
