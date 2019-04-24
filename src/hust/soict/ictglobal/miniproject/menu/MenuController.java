@@ -7,6 +7,8 @@ package hust.soict.ictglobal.miniproject.menu;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import hust.soict.ictglobal.miniproject.secondlaw.SecondLawController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -55,6 +57,11 @@ public class MenuController implements Initializable {
     @FXML
     public void handleFirstLawBtnClick() {
         new FirstLawController().openNewWindow();
+    }
+
+    @FXML
+    private void handleSecondLawBtnClick() {
+        new SecondLawController().openNewWindow();
     }
 
     @FXML
