@@ -17,7 +17,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -27,49 +26,34 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 /**
- * FXML Controller class
  *
  * @author Duc Pham Le
  */
-public class FinalSceneController implements Initializable {
+public class FirstSceneController implements Initializable {
 
+    private boolean flag;
     @FXML
     private GridPane parentContainer;
 
-    private LoadScene sceneLoader = null;
-
-    @FXML
-    private Button prevButton;
-
-    @FXML
-    private Label firstText;
-
-    @FXML
-    private Label secondText;
-    
     @FXML
     private ImageView newton;
-
+    
     @FXML
-    private Label thirdText;
+    private Label text;
 
-    private boolean flag;
+    private LoadScene sceneLoader = new LoadScene();
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        firstText.setOpacity(0);
+    public void initialize(URL location, ResourceBundle resources) {
         flag = false;
-        // TODO
-        // transition for diving & diving text
         
-        // set background color to black
+        // set background color to black !!
         parentContainer.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
-        
+
+        System.out.println("gird pane: " + parentContainer);
         double oldHeight = 716.0;
         double newtonHeight = oldHeight / newton.getFitHeight();
 
@@ -84,12 +68,10 @@ public class FinalSceneController implements Initializable {
 
                 newton.fitHeightProperty().setValue(height / newtonHeight);
                 
-                FontTextAdjustment.adjustFontTextHeight(firstText, _oldHeight, height, 36);
-                FontTextAdjustment.adjustFontTextHeight(secondText, _oldHeight, height, 36);
-                FontTextAdjustment.adjustFontTextHeight(thirdText, _oldHeight, height, 36);
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 25);
             }
         });
-        
+
         parentContainer.widthProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
@@ -99,64 +81,54 @@ public class FinalSceneController implements Initializable {
                 System.out.println("old width: " + oldWidth);
                 newton.fitWidthProperty().setValue(width / newtonWidth);
                 
-                FontTextAdjustment.adjustFontTextWidth(firstText, _oldWidth, width, 36);
-                FontTextAdjustment.adjustFontTextWidth(secondText, _oldWidth, width, 36);
-                FontTextAdjustment.adjustFontTextWidth(thirdText, _oldWidth, width, 36);
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 25);
             }
         });
 
-        FadeTransition fadeTransition = FadedTransition.transition(1, 0, 1);
-        fadeTransition.setNode(firstText);
-        fadeTransition.play();
+    }
 
-        fadeTransition = FadedTransition.transition(7, 1, 0);
-        fadeTransition.setNode(firstText);
-        fadeTransition.play();
+    @FXML
+    public void handleButtonClick(ActionEvent event) { // this catches the event when clicking the next button
+        if (!flag) {
+            makeFadeOut();
+            flag = true;
+        }
+    }
 
-        fadeTransition = FadedTransition.transition(8, 0, 1);
-        fadeTransition.setNode(secondText);
-        fadeTransition.play();
+    private void makeFadeOut() {
+        // using fade transition to fade to another scene
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDelay(Duration.seconds(0)); // fade after 1 sec
+        fadeTransition.setNode(parentContainer);
+        fadeTransition.setFromValue(1); // this is opacity, from 1 to 0 means from clearest to disappear
+        fadeTransition.setToValue(0);
 
-        fadeTransition = FadedTransition.transition(14, 1, 0);
-        fadeTransition.setNode(secondText);
-        fadeTransition.play();
-
-        fadeTransition = FadedTransition.transition(15, 0, 1);
-        fadeTransition.setNode(thirdText);
+        // load another scene after finishing fading
+        fadeTransition.setOnFinished((ActionEvent event) -> {
+            loadNextScene();
+        });
         fadeTransition.play();
     }
 
-    public void handleBtnClick(ActionEvent e) {
-        if (!flag) {
-            sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
-            fadeTransition.setNode(parentContainer);
-            if (e.getSource().equals(prevButton)) {
-                flag = true;
-                fadeTransition.play(); // play transition
-                fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("SeventhScene.fxml", parentContainer);
-                });
-            } else {
-                System.out.println("Error in button clicked");
-            }
-        }
+    // setup for the second scene
+    private void loadNextScene() {
+        sceneLoader.loadScene("SecondScene.fxml", parentContainer);
     }
 
     public void handleKeyTyped(KeyEvent e) {
         if (!flag) {
-            sceneLoader = new LoadScene();
             FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
-            // go back to prev scene
-            if (e.getCode() == KeyCode.LEFT) {
+            // go forward
+            if (e.getCode() == KeyCode.RIGHT) {
                 flag = true;
-                System.out.println("Left arrow pressed");
+                System.out.println("right arrow pressed");
                 fadeTransition.play(); // play transition
                 fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("SeventhScene.fxml", parentContainer);
+                    sceneLoader.loadScene("SecondScene.fxml", parentContainer);
                 });
             }
         }
     }
+
 }

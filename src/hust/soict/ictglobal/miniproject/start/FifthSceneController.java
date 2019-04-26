@@ -5,11 +5,16 @@
  */
 package hust.soict.ictglobal.miniproject.start;
 
+import hust.soict.ictglobal.miniproject.utils.FadedTransition;
+import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
+import hust.soict.ictglobal.miniproject.utils.LoadScene;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
 /**
@@ -29,7 +34,7 @@ import javafx.util.Duration;
 public class FifthSceneController implements Initializable {
 
     @FXML
-    private StackPane parentContainer;
+    private GridPane parentContainer;
 
     @FXML
     private ImageView ATest;
@@ -74,6 +79,64 @@ public class FifthSceneController implements Initializable {
         ATest.setOpacity(0);
         ATestTwo.setOpacity(0);
         text.setOpacity(0);
+        
+        // init height and width of components
+        double oldHeight = 716.0;
+        double aTestHeight = oldHeight / ATest.getFitHeight();
+        double aTestTwoHeight = oldHeight / ATestTwo.getFitHeight();
+        double cloudHeight = oldHeight / cloud.getFitHeight();
+        double cloutTwoHeight = oldHeight / cloudTwo.getFitHeight();
+        double cloudThreeHeight = oldHeight / cloudThree.getFitHeight();
+        double studentHeight = oldHeight / student.getFitHeight();
+        double schoolHeight = oldHeight / school.getFitHeight();
+
+        double oldWidth = 1276.0;
+        double ATestWidth = oldWidth / ATest.getFitWidth();
+        double ATestTwoWidth = oldWidth / ATestTwo.getFitWidth();
+        double cloudWidth = oldWidth / cloud.getFitWidth();
+        double cloudTwoWidth = oldWidth / cloudTwo.getFitWidth();
+        double cloudThreeWidth = oldWidth / cloudThree.getFitWidth();
+        double studentWidth = oldWidth / student.getFitWidth();
+        double schoolWidth = oldWidth / school.getFitWidth();
+        
+        // listen on the changes of the gridpane height and width
+        parentContainer.heightProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double height = (double) newValue;
+                double _oldHeight = (double) oldValue;
+
+                ATest.fitHeightProperty().setValue(height / aTestHeight);
+                ATestTwo.fitHeightProperty().setValue(height / aTestTwoHeight);
+                cloud.fitHeightProperty().setValue(height / cloudHeight);
+                cloudTwo.fitHeightProperty().setValue(height / cloutTwoHeight);
+                cloudThree.fitHeightProperty().setValue(height / cloudThreeHeight);
+                student.fitHeightProperty().setValue(height / studentHeight);
+                school.fitHeightProperty().setValue(height / schoolHeight);
+                //text.setPrefHeight(height / (oldHeight / textHeight));
+                
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 36);
+            }
+        });
+
+        parentContainer.widthProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double width = (double) newValue;
+                double _oldWidth = (double) oldValue;
+
+                System.out.println("old width: " + oldWidth);
+                ATest.fitWidthProperty().setValue(width / ATestWidth);
+                ATestTwo.fitWidthProperty().setValue(width / ATestTwoWidth);
+                cloud.fitWidthProperty().setValue(width / cloudWidth);
+                cloudTwo.fitWidthProperty().setValue(width / cloudTwoWidth);
+                cloudThree.fitWidthProperty().setValue(width / cloudThreeWidth);
+                student.fitWidthProperty().setValue(width / studentWidth);
+                school.fitWidthProperty().setValue(width / schoolWidth);
+                //text.setPrefWidth(width / (oldWidth / textWidth));
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 36);
+            }
+        });
 
         // TODO
         FadeTransition fadeTransition = FadedTransition.transition(1, 0, 1);

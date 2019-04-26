@@ -9,68 +9,64 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="parentContainer" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyTyped" prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.FourthSceneController">
+<GridPane fx:id="parentContainer" onKeyPressed="#handleKeyTyped" prefHeight="716.0" prefWidth="1276.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.FourthSceneController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="80.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="90.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="70.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="245.0" minHeight="10.0" percentHeight="80.0" prefHeight="245.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="233.0" minHeight="10.0" percentHeight="80.0" prefHeight="232.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="90.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <GridPane style="-fx-background-color: FFFFFF;">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="80.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="80.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="90.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="90.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="90.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="prevButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" GridPane.valignment="TOP" />
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Next" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
-            <ImageView fx:id="kidStudying" fitHeight="298.0" fitWidth="616.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="0" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="BASELINE" GridPane.vgrow="SOMETIMES">
-               <image>
-                  <Image url="@../images/children_studying.png" />
-               </image>
-               <viewport>
-                  <Rectangle2D />
-               </viewport>
-               <GridPane.margin>
-                  <Insets left="60.0" top="30.0" />
-               </GridPane.margin>
-            </ImageView>
-            <ImageView fx:id="school" fitHeight="454.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
-               <image>
-                  <Image url="@../images/school.jpg" />
-               </image>
-               <GridPane.margin>
-                  <Insets bottom="100.0" left="300.0" />
-               </GridPane.margin>
-            </ImageView>
-            <ImageView fx:id="latin" fitHeight="176.0" fitWidth="518.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
-               <image>
-                  <Image url="@../images/latin.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets left="50.0" />
-               </GridPane.margin>
-            </ImageView>
-            <ImageView fx:id="math" fitHeight="184.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-               <image>
-                  <Image url="@../images/math.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets top="120.0" />
-               </GridPane.margin>
-            </ImageView>
-            <Label fx:id="text" prefHeight="128.0" prefWidth="1158.0" text="During his teenage years, he attended the King’s school, Grantham which taught him Latin &amp; Greeks, mathematics" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
-               <font>
-                  <Font name="System Bold" size="40.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets top="100.0" />
-               </GridPane.margin>
-            </Label>
-         </children>
-      </GridPane>
+      <Button fx:id="prevButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" GridPane.valignment="TOP" />
+      <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Next" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+      <ImageView fx:id="kidStudying" fitHeight="298.0" fitWidth="616.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="0" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="BASELINE" GridPane.vgrow="SOMETIMES">
+         <image>
+            <Image url="@../images/children_studying.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <GridPane.margin>
+            <Insets left="50.0" top="30.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fx:id="school" fitHeight="454.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+         <image>
+            <Image url="@../images/school.jpg" />
+         </image>
+         <GridPane.margin>
+            <Insets bottom="100.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fx:id="latin" fitHeight="176.0" fitWidth="518.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+         <image>
+            <Image url="@../images/latin.png" />
+         </image>
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fx:id="math" fitHeight="184.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+         <image>
+            <Image url="@../images/math.png" />
+         </image>
+         <GridPane.margin>
+            <Insets top="120.0" />
+         </GridPane.margin>
+      </ImageView>
+      <Label fx:id="text" prefHeight="158.0" prefWidth="1171.0" text="During his teenage years, he attended the King’s school, Grantham which taught him Latin &amp; Greeks, mathematics" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="100.0" />
+         </GridPane.margin>
+      </Label>
    </children>
-</StackPane>
+</GridPane>

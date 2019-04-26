@@ -5,6 +5,9 @@
  */
 package hust.soict.ictglobal.miniproject.start;
 
+import hust.soict.ictglobal.miniproject.utils.FadedTransition;
+import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
+import hust.soict.ictglobal.miniproject.utils.LoadScene;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
@@ -17,9 +20,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 /**
  * FXML Controller class
@@ -29,7 +34,7 @@ import javafx.util.Duration;
 public class FourthSceneController implements Initializable {
 
     @FXML
-    private StackPane parentContainer;
+    private GridPane parentContainer;
 
     @FXML
     private ImageView latin;
@@ -66,16 +71,64 @@ public class FourthSceneController implements Initializable {
         school.setOpacity(0);
         math.setOpacity(0);
         text.setOpacity(0);
-        
-        // TODO
+        System.out.println("parent containner: " + parentContainer);
 
+        // init height and width of components
+        double oldHeight = 716.0;
+        double schoolHeight = oldHeight / school.getFitHeight();
+        double mathHeight = oldHeight / math.getFitHeight();
+        double latinHeight = oldHeight / latin.getFitHeight();
+        double kidHeight = oldHeight / kidStudying.getFitHeight();
+        double textHeight = oldHeight / text.getHeight();
+
+        double oldWidth = 1276.0;
+        double schoolWidth = oldWidth / school.getFitWidth();
+        double mathWidth = oldWidth / math.getFitWidth();
+        double latinWidth = oldWidth / latin.getFitWidth();
+        double kidWidth = oldWidth / kidStudying.getFitWidth();
+        double textWidth = oldWidth / text.getWidth();
+        
+        // listen on the changes of the gridpane height and width
+        parentContainer.heightProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double height = (double) newValue;
+                double _oldHeight = (double) oldValue;
+
+                school.fitHeightProperty().setValue(height / schoolHeight);
+                math.fitHeightProperty().setValue(height / mathHeight);
+                latin.fitHeightProperty().setValue(height / latinHeight);
+                kidStudying.fitHeightProperty().setValue(height / kidHeight);
+                //text.setPrefHeight(height / (oldHeight / textHeight));
+                
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 36);
+            }
+        });
+
+        parentContainer.widthProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double width = (double) newValue;
+                double _oldWidth = (double) oldValue;
+
+                System.out.println("old width: " + oldWidth);
+                school.fitWidthProperty().setValue(width / schoolWidth);
+                math.fitWidthProperty().setValue(width / mathWidth);
+                latin.fitWidthProperty().setValue(width / latinWidth);
+                kidStudying.fitWidthProperty().setValue(width / kidWidth);
+                //text.setPrefWidth(width / (oldWidth / textWidth));
+                
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 36);
+            }
+        });
+        // TODO
         // transition for kid pic
         Line line = new Line();
         int kidPicX = 270;
         int kidPicY = 120;
         line.setStartX(kidPicX - 700);
         line.setStartY(kidPicY);
-        line.setEndX(kidPicX);
+        line.setEndX(kidPicX + 100);
         line.setEndY(kidPicY);
 
         PathTransition transition = new PathTransition();
