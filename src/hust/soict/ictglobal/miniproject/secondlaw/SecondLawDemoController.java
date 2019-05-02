@@ -1,9 +1,21 @@
 package hust.soict.ictglobal.miniproject.secondlaw;
 
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.CubicCurveTo;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +32,12 @@ public class SecondLawDemoController implements Initializable {
 
     @FXML
     private Text distanceText;
+
+    @FXML
+    private Line kickingLeg;
+
+    @FXML
+    private Circle ball;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,6 +69,7 @@ public class SecondLawDemoController implements Initializable {
         String forceText = forceInput.getText();
         String weightText = weightInput.getText();
         if (!forceText.equals("") && !weightText.equals("")) {
+            // calculate acceleration and distance
             int force = Integer.parseInt(forceText);
             int weight = Integer.parseInt(weightText);
 
@@ -65,6 +84,39 @@ public class SecondLawDemoController implements Initializable {
 
             accelerationText.setText(String.format("Acceleration: %.5f m/s\u00B2", acceleration));
             distanceText.setText(String.format("Distance: %.5f m", distance));
+
+            // start animation
+            Rotate rotate = new Rotate();
+            rotate.setPivotX(kickingLeg.getEndX());
+            rotate.setPivotY(kickingLeg.getEndY());
+
+            kickingLeg.getTransforms() .add(rotate);
+
+            Timeline timeline = new Timeline(50);
+
+            KeyFrame frame1 = new KeyFrame(Duration.millis(0), new KeyValue(rotate.angleProperty(), 0));
+
+            KeyFrame frame2 = new KeyFrame(Duration.millis(250), new KeyValue(rotate.angleProperty(), -120));
+
+            timeline.getKeyFrames().addAll(frame1, frame2);
+
+            timeline.play();
+
+            new Thread(() -> {
+                try {
+                    Thread.sleep(250);
+
+                    PathTransition pathTransition = new PathTransition(Duration.millis(1000), ball);
+                    CubicCurveTo curve = new CubicCurveTo(100f, 100f, 200f, 100f, 600f, 600f);
+                    Path path = new Path();
+                    path.getElements().addAll(new MoveTo(ball.getCenterX(), ball.getCenterY()));
+                    path.getElements().addAll(curve);
+                    pathTransition.setPath(path);
+                    pathTransition.play();
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }).start();
         }
     }
 }

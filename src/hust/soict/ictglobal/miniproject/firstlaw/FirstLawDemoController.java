@@ -61,17 +61,15 @@ public class FirstLawDemoController implements Initializable {
 
     private void setTransition() {
         if (this.currentRotation != null) {
-            System.out.println("current rotation is not null now");
             this.currentRotation.stop();
-            //this.currentRotation.pause();
         }
         if (this.currentTransition != null) {
-            System.out.println("current transition is not null now");
             System.out.println("status: " + this.currentTransition.getStatus().name());
-            currentAnimationTime = this.currentTransition.getStatus().equals(Animation.Status.STOPPED) ? currentAnimationTime : this.currentTransition.getCurrentTime().divide(this.currentTransition.getDuration().toMillis());
+            currentAnimationTime = this.currentTransition.getStatus().equals(Animation.Status.STOPPED) ? (
+                    currentRotation.getByAngle() * forceLevel > 0 ? currentAnimationTime : Duration.millis(1).subtract(currentAnimationTime)
+                    ) : this.currentTransition.getCurrentTime().divide(this.currentTransition.getDuration().toMillis());
             System.out.println("current animation time in this.currentTransition: " + currentAnimationTime);
             this.currentTransition.stop();
-            //this.currentRotation.pause();
         }
         if (this.forceLevel != 0) {
             // set text opacity
@@ -100,12 +98,10 @@ public class FirstLawDemoController implements Initializable {
                 translateTransition.setToX(scene.getLayoutBounds().getMaxX() / -1.75);
             }
             Double duration = translateTransition.getDuration().toMillis();
-            System.out.println("Current duration of translate transition: " + translateTransition.getDuration().toMillis());
             translateTransition.playFrom(currentAnimationTime != null ? currentAnimationTime.multiply(duration) : Duration.millis(2500));
-            //translateTransition.play();
+            translateTransition.play();
             this.currentTransition = translateTransition;
-        }
-        else {
+        } else {
             // set text again
             rollingText.setOpacity(0);
             stationaryText.setOpacity(1);

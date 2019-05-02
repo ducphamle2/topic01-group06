@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawDemoController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Line endX="492.5" layoutX="107.0" layoutY="248.0" startX="-107.0" />
       <Group layoutX="179.0" layoutY="201.0">
@@ -28,12 +28,12 @@
          </children>
       </Group>
       <Label layoutX="47.0" layoutY="300.0" text="Ball 1's weight" />
-      <TextField layoutX="151.0" layoutY="295.0" prefHeight="26.0" prefWidth="93.0" />
+      <TextField fx:id="ball1Input" layoutX="151.0" layoutY="295.0" prefHeight="26.0" prefWidth="93.0" />
       <Label layoutX="271.0" layoutY="300.0" text="Ball 2's weight" />
-      <TextField layoutX="375.0" layoutY="295.0" prefHeight="26.0" prefWidth="93.0" />
-      <Button layoutX="489.0" layoutY="295.0" mnemonicParsing="false" text="Start" />
+      <TextField fx:id="ball2Input" layoutX="375.0" layoutY="295.0" prefHeight="26.0" prefWidth="93.0" />
+      <Button onAction="#startDemo" layoutX="489.0" layoutY="295.0" mnemonicParsing="false" text="Start" />
       <Button layoutX="277.0" layoutY="334.0" mnemonicParsing="false" text="Help" />
-      <Text layoutX="102.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initial velocity" />
+      <Text layoutX="102.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initial velocity: 30m/s" />
       <Text layoutX="122.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v1'" wrappingWidth="50.0" />
       <Text layoutX="383.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v2'" />
    </children>

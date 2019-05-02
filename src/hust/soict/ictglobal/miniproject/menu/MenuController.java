@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import hust.soict.ictglobal.miniproject.secondlaw.SecondLawController;
+import hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -62,6 +63,11 @@ public class MenuController implements Initializable {
     @FXML
     private void handleSecondLawBtnClick() {
         new SecondLawController().openNewWindow();
+    }
+
+    @FXML
+    private void handleThirdLawBtnClick() {
+        new ThirdLawController().openNewWindow();
     }
 
     @FXML
