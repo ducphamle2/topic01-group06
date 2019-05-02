@@ -5,10 +5,14 @@
  */
 package hust.soict.ictglobal.miniproject.start;
 
+import hust.soict.ictglobal.miniproject.utils.FadedTransition;
+import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
+import hust.soict.ictglobal.miniproject.utils.LoadScene;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
-import javafx.animation.PathTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,9 +22,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Line;
-import javafx.util.Duration;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import static javax.management.Query.value;
 
 /**
  * FXML Controller class
@@ -48,10 +52,7 @@ public class ThirdSceneController implements Initializable {
     private ImageView textbox;
 
     @FXML
-    private Label text;
-
-    @FXML
-    private StackPane parentContainer;
+    private GridPane parentContainer;
 
     private LoadScene sceneLoader = null;
 
@@ -61,6 +62,12 @@ public class ThirdSceneController implements Initializable {
     @FXML
     private Button prevButton;
 
+    @FXML
+    private ImageView houseTwo;
+
+    @FXML
+    private Label text;
+
     private boolean flag = false; // use to check mouse clicked. Only listen once for animation
     private boolean flagTwo;
 
@@ -69,31 +76,82 @@ public class ThirdSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        // init height and width of components
+        double oldHeight = 716.0;
+        double schoolHeight = oldHeight / motherKid.getFitHeight();
+        double mathHeight = oldHeight / house.getFitHeight();
+        double latinHeight = oldHeight / grandparents.getFitHeight();
+        double kidHeight = oldHeight / couple.getFitHeight();
+        double cityHeight = oldHeight / city.getFitHeight();
+        double textboxHeight = oldHeight / textbox.getFitHeight();
+        double houseTwoHeight = oldHeight / houseTwo.getFitHeight();
+
+        double oldWidth = 1276.0;
+        double schoolWidth = oldWidth / motherKid.getFitWidth();
+        double mathWidth = oldWidth / house.getFitWidth();
+        double latinWidth = oldWidth / grandparents.getFitWidth();
+        double kidWidth = oldWidth / couple.getFitWidth();
+        double cityWidth = oldWidth / city.getFitWidth();
+        double textboxWidth = oldWidth / textbox.getFitWidth();
+        double houseTwoWidth = oldWidth / houseTwo.getFitWidth();
+
+        // listen on the changes of the gridpane height and width
+        parentContainer.heightProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double height = (double) newValue;
+                double old = (double) oldValue;
+
+                motherKid.fitHeightProperty().setValue(height / schoolHeight);
+                house.fitHeightProperty().setValue(height / mathHeight);
+                grandparents.fitHeightProperty().setValue(height / latinHeight);
+                couple.fitHeightProperty().setValue(height / kidHeight);
+                city.fitHeightProperty().setValue(height / cityHeight);
+                textbox.fitHeightProperty().setValue(height / textboxHeight);
+                houseTwo.fitHeightProperty().setValue(height / houseTwoHeight);
+                
+                FontTextAdjustment.adjustFontTextHeight(text, old, height, 36); // adjust font w.r.t our pane
+            }
+        });
+
+        parentContainer.widthProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double width = (double) newValue;
+                double old = (double) oldValue;
+
+                System.out.println("old width: " + old);
+                System.out.println("new width: " + width);
+                motherKid.fitWidthProperty().setValue(width / schoolWidth);
+                house.fitWidthProperty().setValue(width / mathWidth);
+                grandparents.fitWidthProperty().setValue(width / latinWidth);
+                couple.fitWidthProperty().setValue(width / kidWidth);
+                city.fitWidthProperty().setValue(width / cityWidth);
+                textbox.fitWidthProperty().setValue(width / textboxWidth);
+                houseTwo.fitWidthProperty().setValue(width / houseTwoWidth);
+                
+                FontTextAdjustment.adjustFontTextWidth(text, old, width, 36);
+            }
+        });
+
         flagTwo = false;
     }
 
     public void handleMouseClicked(MouseEvent e) {
         if (!flag) {
-            // for the house
-            Line line = new Line();
-            int x = 200;
-            int y = 203;
-            line.setStartX(200);
-            line.setStartY(203);
-            line.setEndX(x - 720);
-            line.setEndY(y + 150);
-            house.setFitHeight(house.getFitHeight() - 110);
-            house.setFitWidth(house.getFitWidth() - 110);
-
-            System.out.println("after creating polyline");
-            PathTransition transition = new PathTransition();
-            transition.setNode(house);
-            transition.setDuration(Duration.seconds(2));
-            transition.setPath(line);
 
             // for the woman holding the baby
             FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0);
             fadeTransition.setNode(motherKid);
+            fadeTransition.play();
+
+            fadeTransition = FadedTransition.transition(0, 1, 0);
+            fadeTransition.setNode(house);
+            fadeTransition.play();
+
+            fadeTransition = FadedTransition.transition(1, 0, 1);
+            fadeTransition.setNode(houseTwo);
             fadeTransition.play();
 
             //for the grandparents and the kid
@@ -115,13 +173,6 @@ public class ThirdSceneController implements Initializable {
             fadeTransition = FadedTransition.transition(2, 0, 1);
             fadeTransition.setNode(textbox);
             fadeTransition.play();
-
-            //for the text
-            fadeTransition = FadedTransition.transition(2, 0, 1);
-            fadeTransition.setNode(text);
-            fadeTransition.play();
-
-            transition.play();
 
             flag = true; // does not allow to listen to mouse click again
         }
