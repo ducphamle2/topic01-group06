@@ -1,40 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="scene" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.firstlaw.FirstLawController">
+<GridPane fx:id="parentContainer" prefHeight="716.0" prefWidth="1276.0" style="-fx-background-color: FFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.firstlaw.FirstLawController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="421.0" minWidth="10.0" prefWidth="171.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="421.0" minWidth="10.0" prefWidth="130.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="956.0" minWidth="10.0" prefWidth="767.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="956.0" minWidth="10.0" prefWidth="122.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="146.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="172.0" minHeight="0.0" prefHeight="168.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="358.0" minHeight="10.0" prefHeight="190.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="252.0" minHeight="10.0" prefHeight="252.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <Label layoutX="24.0" layoutY="35.0" text="Newton's first law">
+      <Label fx:id="text" text="Newton's first law" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="20.0" />
+            <Font size="27.0" />
          </font>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
       </Label>
-      <Label layoutX="24.0" layoutY="83.0" prefHeight="32.0" prefWidth="532.0" text="In an inertial frame of reference, an object either remains at rest or continues to move at a constant velocity, unless acted upon by a force" wrapText="true" />
-      <Button fx:id="startBtn" onAction="#openDemo" layoutX="255.0" layoutY="301.0" mnemonicParsing="false" text="Demo">
+      <Label fx:id="textTwo" prefHeight="104.0" prefWidth="574.0" text="In an inertial frame of reference, an object either remains at rest or continues to move at a constant velocity, unless acted upon by a force" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+         <GridPane.margin>
+            <Insets bottom="20.0" />
+         </GridPane.margin>
          <font>
-            <Font size="16.0" />
+            <Font size="19.0" />
+         </font></Label>
+      <Button fx:id="startBtn" mnemonicParsing="false" onAction="#openDemo" prefHeight="66.0" prefWidth="147.0" text="Demo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+         <font>
+            <Font size="24.0" />
          </font>
       </Button>
-      <Line endX="414.0" layoutX="137.0" layoutY="260.0" startX="-100.0" />
-      <Circle fill="#8495a4" layoutX="160.0" layoutY="215.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#8495a4" layoutX="442.0" layoutY="213.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="-39.0" layoutX="447.0" layoutY="182.0" startX="-100.0" style="-fx-stroke-dash-array: 10;" />
-      <Line endX="49.0" layoutX="350.0" layoutY="200.0" startX="-18.0" style="-fx-stroke-dash-array: 10;" />
-      <Line endX="64.0" layoutX="337.0" layoutY="225.0" startX="16.0" style="-fx-stroke-dash-array: 10;" />
-      <Line endX="59.0" layoutX="347.0" layoutY="244.0" startX="-5.0" style="-fx-stroke-dash-array: 10;" />
-      <Line endX="89.0" layoutX="353.0" layoutY="167.0" startX="22.0" style="-fx-stroke-dash-array: 10;" />
-      <Label layoutX="24.0" layoutY="140.0" style="-fx-rotate: -10;" text="Continue to stay at rest" />
-      <CubicCurve controlX1="-90.0" controlX2="-78.0" controlY1="31.0" controlY2="40.0" endX="-39.0" endY="49.0" fill="#2197ff00" layoutX="153.0" layoutY="176.0" startX="-109.0" startY="-6.750640869140625" stroke="BLACK" />
-      <CubicCurve controlX1="-12.0" controlX2="-12.0" controlY1="30.0" controlY2="-17.0" endX="-42.0" endY="-59.0" fill="#2197ff00" layoutX="530.0" layoutY="290.0" startX="-56.0" startY="24.0" stroke="BLACK" />
-      <Label layoutX="400.0" layoutY="309.0" style="-fx-rotate: 10;" text="Continue to move" />
-      <CubicCurve controlX1="23.0" controlX2="31.0" controlY1="5.0" controlY2="23.0" endX="31.0" endY="51.0" fill="#1f93ff00" layoutX="465.0" layoutY="169.0" startX="-4.0" startY="-2.0" stroke="BLACK" />
-      <Accordion layoutX="53.0" layoutY="127.0" />
+      <Line fx:id="line" endX="881.8787231445312" endY="-2.124199628829956" startX="2158.5859375" startY="-2.1241705417633057" GridPane.columnSpan="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <ImageView fx:id="ball" fitHeight="215.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@../images/circle_2.png" />
+         </image>
+         <GridPane.margin>
+            <Insets bottom="2.0" left="40.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fx:id="ballTwo" fitHeight="212.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@../images/circle_1.png" />
+         </image>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </ImageView>
    </children>
-</AnchorPane>
+</GridPane>

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="hust.soict.ictglobal.miniproject.secondlaw.SecondLawDemoController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Ellipse fill="#8999a8" layoutX="110.0" layoutY="126.0" radiusX="19.0" radiusY="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Line endX="108.0" endY="63.0" layoutX="-9.0" layoutY="147.0" startX="119.0" startY="2.0" />
@@ -21,13 +21,13 @@
       <Line endX="-19.29290771484375" endY="34.0" layoutX="135.0" layoutY="225.0" startX="-19.29290771484375" startY="14.70709228515625" />
       <Line endX="425.0" layoutX="133.0" layoutY="260.0" startX="-100.0" />
       <Circle fill="#8d949a" layoutX="190.0" layoutY="215.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label layoutX="98.0" layoutY="303.0" text="Force" />
-      <TextField layoutX="145.0" layoutY="298.0" prefHeight="26.0" prefWidth="82.0" />
-      <Label layoutX="289.0" layoutY="293.0" prefHeight="36.0" prefWidth="71.0" text="Weight of the ball" wrapText="true" />
-      <TextField layoutX="363.0" layoutY="298.0" prefHeight="26.0" prefWidth="82.0" />
-      <Button layoutX="488.0" layoutY="298.0" mnemonicParsing="false" text="Kick!!!" />
-      <Text layoutX="104.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acceleration: " />
-      <Text layoutX="352.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance: " />
+      <Label layoutX="98.0" layoutY="303.0" text="Force (N)" />
+      <TextField fx:id="forceInput" layoutX="145.0" layoutY="298.0" prefHeight="26.0" prefWidth="82.0" />
+      <Label layoutX="289.0" layoutY="293.0" prefHeight="36.0" prefWidth="71.0" text="Weight of the ball (kg)" wrapText="true" />
+      <TextField fx:id="weightInput" layoutX="363.0" layoutY="298.0" prefHeight="26.0" prefWidth="82.0" />
+      <Button onAction="#kickStarted" layoutX="488.0" layoutY="298.0" mnemonicParsing="false" text="Kick!!!" />
+      <Text fx:id="accelerationText" layoutX="104.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acceleration: " />
+      <Text fx:id="distanceText" layoutX="352.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance: " />
       <Button layoutX="266.0" layoutY="340.0" mnemonicParsing="false" text="Help">
          <font>
             <Font size="16.0" />
