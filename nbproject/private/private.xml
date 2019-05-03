@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/hust/soict/ictglobal/miniproject/firstlaw/FirstLawController.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>82</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/firstlaw/FirstLawDemo.fxml</file>
-            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/firstlaw/FirstLawController.java</file>
-            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/start/FinalScene.fxml</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/firstlaw/HelpScene.fxml</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/start/FourthSceneController.java</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/menu/MenuView.fxml</file>
             <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/menu/MenuController.java</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/utils/FontTextAdjustment.java</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/firstlaw/FirstLaw.fxml</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/thirdlaw/ThirdLawDemoController.java</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/thirdlaw/HelpScene.fxml</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/start/FinalScene.fxml</file>
             <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/start/LoadScene.java</file>
             <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/firstlaw/FirstLawBtnController.java</file>
-            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/firstlaw/FirstLaw.fxml</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/secondlaw/SecondLawDemoController.java</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/secondlaw/SecondLawDemo.fxml</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/secondlaw/SecondLaw.fxml</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/secondlaw/SecondLawController.java</file>
+            <file>file:/C:/Users/Duc%20Pham%20Le/Java/oolt.ict.20182.20161128.phamleduc/Newton-Law-Java-Application/src/hust/soict/ictglobal/miniproject/firstlaw/FirstLawDemoController.java</file>
         </group>
     </open-files>
 </project-private>

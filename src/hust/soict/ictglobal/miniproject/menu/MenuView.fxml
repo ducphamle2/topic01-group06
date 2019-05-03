@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.menu.MenuController">
     <children>
-        <Button fx:id="thirdBtnLaw" alignment="CENTER" layoutX="340.0" layoutY="355.0" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="Third law">
+        <Button fx:id="thirdBtnLaw" alignment="CENTER" layoutX="340.0" layoutY="355.0" onAction="#handleThirdLawBtnClick" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="Third law">
          <effect>
             <Glow />
          </effect></Button>
@@ -39,7 +39,7 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <Button fx:id="secondBtnLaw" alignment="CENTER" layoutX="340.0" layoutY="298.0" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="Second law">
+      <Button fx:id="secondBtnLaw" alignment="CENTER" layoutX="340.0" layoutY="298.0" onAction="#handleSecondLawBtnClick" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="Second law">
          <effect>
             <Glow />
          </effect>

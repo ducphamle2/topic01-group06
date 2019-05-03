@@ -1,6 +1,7 @@
 package hust.soict.ictglobal.miniproject.firstlaw;
 
 import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
+import java.io.IOException;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
@@ -8,16 +9,21 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class FirstLawDemoController implements Initializable {
     private int forceLevel = 0;
@@ -47,10 +53,10 @@ public class FirstLawDemoController implements Initializable {
     private Line lineThree; // horizontal line (surface)
 
     @FXML
-    private Text rollingText;
+    private Label rollingText;
 
     @FXML
-    private Text stationaryText;
+    private Label stationaryText;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -112,6 +118,24 @@ public class FirstLawDemoController implements Initializable {
         }
         System.out.println("force level push right: " + this.forceLevel);
         setTransition();
+    }
+    
+    @FXML
+    private void onActionHelpClicked() throws IOException{
+        Stage stage = new Stage();
+        // create a new window using FirstLaw gui
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("HelpScene.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            //stage.setMaximized(true);
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL); // prevent from using the main windows
+            stage.setTitle("First law demo tutorial");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

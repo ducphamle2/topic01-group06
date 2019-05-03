@@ -6,47 +6,39 @@ package hust.soict.ictglobal.miniproject.secondlaw;
  * and open the template in the editor.
  */
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
  *
  * @author Duc Pham Le
  */
-public class SecondLawBtnController extends Application {
+public class SecondLawBtnController {
     
-    @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
+    public void openNewWindow(String fxmlName) throws IOException {
+        Stage stage = new Stage();
+        // create a new window using FirstLaw gui
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlName));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            //stage.setMaximized(true);
+            //stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL); // prevent from using the main windows
+            stage.setTitle("Biography of Issac Newton");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
 }

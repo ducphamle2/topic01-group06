@@ -1,63 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Group?>
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="scene" fx:controller="hust.soict.ictglobal.miniproject.secondlaw.SecondLawController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="parentContainer" prefHeight="716.0" prefWidth="1276.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.secondlaw.SecondLawController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="560.0" minWidth="10.0" prefWidth="227.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="993.0" minWidth="10.0" prefWidth="795.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.0" minWidth="10.0" prefWidth="254.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="168.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="368.0" minHeight="10.0" prefHeight="323.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="181.0" minHeight="10.0" prefHeight="136.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <Label layoutX="34.0" layoutY="45.0" text="Newton's second law">
+      <Label fx:id="label" prefHeight="85.0" prefWidth="749.0" text="Newton's second law" GridPane.columnIndex="1" GridPane.halignment="CENTER">
          <font>
-            <Font size="20.0" />
+            <Font size="27.0" />
          </font>
       </Label>
-      <Button fx:id="startBtn" onAction="#openDemo" layoutX="265.0" layoutY="311.0" mnemonicParsing="false" text="Demo">
+      <Button fx:id="startBtn" alignment="CENTER" mnemonicParsing="false" onAction="#openDemo" prefHeight="53.0" prefWidth="107.0" text="Demo" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Line endX="414.0" layoutX="147.0" layoutY="270.0" startX="-100.0" />
-      <Circle fill="#8495a4" layoutX="324.0" layoutY="224.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
-      <Accordion layoutX="63.0" layoutY="137.0" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text layoutY="-13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="92.0" />
-      <Text layoutX="38.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In an inertial frame of reference, the vector sum of the forces F on an object is equal to the mass m of that object multiplied by the acceleration a of the object: F = ma" wrappingWidth="532.3359375" />
-      <Ellipse fill="#8999a8" layoutX="234.0" layoutY="179.0" radiusX="19.0" radiusY="23.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="107.9619140625" endY="29.0" layoutX="115.0" layoutY="200.0" startX="119.0" startY="2.0" />
-      <Line endX="107.25482177734375" endY="4.707122802734375" layoutX="115.0" layoutY="225.0" startX="84.9619140625" startY="45.5" />
-      <Line endX="222.25482177734375" endY="60.707122802734375" layoutY="169.0" startX="245.9619140625" startY="72.93310546875" />
-      <Line endX="131.66900634765625" endY="54.64019775390625" layoutX="115.0" layoutY="188.0" startX="116.9619140625" startY="81.5" />
-      <Line endX="118.48095703125" endY="22.5" layoutX="110.0" layoutY="193.0" startX="168.0" startY="22.5" />
-      <Group layoutX="298.4619140625" layoutY="200.2928924560547">
-         <children>
-            <Line endX="180.9619140625" layoutY="14.207107543945312" startX="33.9619140625" />
-            <Line endX="47.66900634765625" endY="14.707107543945312" layoutX="133.79290771484375" startX="35.70709228515625" startY="29.640213012695312" />
-            <Line endX="47.66900634765625" endY="0.2071075439453125" layoutX="133.79290771484375" layoutY="14.5" startX="33.9619140625" startY="-16.06689453125" />
-         </children>
-      </Group>
-      <Group layoutX="213.0" layoutY="140.0">
-         <children>
-            <Line endX="180.9619140625" layoutY="14.207107543945312" startX="118.9619140625" startY="-1.52587890625E-5" />
-            <Line endX="47.66900634765625" endY="14.707107543945312" layoutX="133.79290771484375" startX="35.70709228515625" startY="29.640213012695312" />
-            <Line endX="47.66900634765625" endY="0.2071075439453125" layoutX="133.79290771484375" layoutY="14.5" startX="33.9619140625" startY="-16.06689453125" />
-         </children>
-      </Group>
-      <Text layoutX="459.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F">
+      <Line fx:id="line" endX="1175.2928466796875" endY="0.4437721371650696" startX="-100.0" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <ImageView fx:id="image" fitHeight="228.0" fitWidth="433.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@../images/2ndLaw.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="text" prefHeight="120.0" prefWidth="749.0" text="In an inertial frame of reference, the vector sum of the forces F on an object is equal to the mass m of that object multiplied by the acceleration a of the object: F = ma" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
-            <Font size="24.0" />
+            <Font size="21.0" />
          </font>
-      </Text>
-      <Text layoutX="399.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
+      </Label>
    </children>
-</AnchorPane>
+</GridPane>

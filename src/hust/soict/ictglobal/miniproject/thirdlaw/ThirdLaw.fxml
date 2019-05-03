@@ -12,14 +12,14 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="scene" fx:controller="hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="44.0" layoutY="55.0" text="Newton's third law">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="startBtn" layoutX="275.0" layoutY="321.0" mnemonicParsing="false" text="Demo">
+      <Button onAction="#openDemo" layoutX="275.0" layoutY="321.0" mnemonicParsing="false" text="Demo">
          <font>
             <Font size="16.0" />
          </font>

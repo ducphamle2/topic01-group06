@@ -28,7 +28,7 @@ public class FirstLawBtnController {
             //stage.setMaximized(true);
             //stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL); // prevent from using the main windows
-            stage.setTitle("Biography of Issac Newton");
+            stage.setTitle("First law demo");
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

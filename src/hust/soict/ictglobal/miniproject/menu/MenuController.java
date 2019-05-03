@@ -6,12 +6,14 @@
 package hust.soict.ictglobal.miniproject.menu;
 
 import hust.soict.ictglobal.miniproject.firstlaw.FirstLawBtnController;
+import hust.soict.ictglobal.miniproject.secondlaw.SecondLawBtnController;
 import java.net.URL;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 
 import hust.soict.ictglobal.miniproject.start.MenuBtnWindowController;
+import hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawController;
 import java.io.IOException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
@@ -58,8 +60,13 @@ public class MenuController implements Initializable {
     }
     
     @FXML
-    public void handleSecondBtnClick() throws IOException {
-        
+    public void handleSecondLawBtnClick() throws IOException {
+        new SecondLawBtnController().openNewWindow("SecondLaw.fxml");
+    }
+    
+    @FXML
+    public void handleThirdLawBtnClick() throws IOException {
+        new ThirdLawController().openNewWindow();
     }
 
     @FXML

@@ -30,14 +30,14 @@ public class FontTextAdjustment {
         // used to adjust font size. If font <= 10 then we dont reduce it anymore cuz too small
         if (text.getFont().getSize() > 11) {
             if (newHeight < oldHeight) {
-                Font newFont = Font.font("Arial", FontWeight.BOLD, (text.getFont().getSize() - 0.1));
+                Font newFont = Font.font("Arial", FontWeight.BOLD, (text.getFont().getSize() - 0.05));
                 text.setFont(newFont);
             }
         }
 
         // if new height is larger than old height => increase
         if (newHeight > oldHeight) {
-            Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() + 0.1);
+            Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() + 0.05);
             text.setFont(newFont);
         }
 
@@ -61,13 +61,13 @@ public class FontTextAdjustment {
         // same idea with height
         if (text.getFont().getSize() > 11) {
             if (newWidth < oldWidth) {
-                Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() - 0.1);
+                Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() - 0.05);
                 text.setFont(newFont);
             }
         }
 
         if (newWidth > oldWidth) {
-            Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() + 0.1);
+            Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() + 0.05);
             text.setFont(newFont);
         }
         if (newWidth >= originalWidth || text.getFont().getSize() >= initFontSize) {
@@ -89,14 +89,14 @@ public class FontTextAdjustment {
         // used to adjust font size. If font <= 10 then we dont reduce it anymore cuz too small
         if (text.getFont().getSize() > 11) {
             if (newHeight < oldHeight) {
-                Font newFont = Font.font("Arial", FontWeight.BOLD, (text.getFont().getSize() - 0.1));
+                Font newFont = Font.font("Arial", FontWeight.BOLD, (text.getFont().getSize() - 0.05));
                 text.setFont(newFont);
             }
         }
 
         // if new height is larger than old height => increase
         if (newHeight > oldHeight) {
-            Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() + 0.1);
+            Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() + 0.05);
             text.setFont(newFont);
         }
 
@@ -120,13 +120,13 @@ public class FontTextAdjustment {
         // same idea with height
         if (text.getFont().getSize() > 11) {
             if (newWidth < oldWidth) {
-                Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() - 0.1);
+                Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() - 0.05);
                 text.setFont(newFont);
             }
         }
 
         if (newWidth > oldWidth) {
-            Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() + 0.1);
+            Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() + 0.05);
             text.setFont(newFont);
         }
         if (newWidth >= originalWidth || text.getFont().getSize() >= initFontSize) {
