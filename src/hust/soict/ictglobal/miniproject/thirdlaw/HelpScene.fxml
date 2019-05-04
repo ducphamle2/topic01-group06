@@ -12,14 +12,15 @@
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="295.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="448.0" minHeight="0.0" prefHeight="104.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="448.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="448.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="448.0" minHeight="10.0" prefHeight="162.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="295.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="448.0" minHeight="0.0" prefHeight="119.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="448.0" minHeight="10.0" prefHeight="103.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="448.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="448.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="117.0" minHeight="86.0" prefHeight="96.0" />
    </rowConstraints>
    <children>
-      <Label prefHeight="83.0" prefWidth="946.0" text="There are two inputs and a start button. In order to run the demo both inputs must NOT BE EMPTY !" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Label prefHeight="117.0" prefWidth="972.0" text="There are two inputs and a start button. In order to run the demo both inputs must NOT BE EMPTY !" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="21.0" />
          </font>
@@ -32,7 +33,7 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <Label prefHeight="83.0" prefWidth="936.0" text=" +) Ball 1's weight: Type in a value for the weight of the first ball (on the left)" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+      <Label prefHeight="99.0" prefWidth="936.0" text=" +) Ball 1's weight: Type in a value for the weight of the first ball (on the left)" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="2">
          <font>
             <Font size="19.0" />
          </font>
@@ -40,7 +41,7 @@
             <Insets left="40.0" />
          </GridPane.margin>
       </Label>
-      <Label prefHeight="96.0" prefWidth="936.0" text=" +) Ball 2's weight: Type in a value for the weight of the second ball (on the right)" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Label prefHeight="109.0" prefWidth="936.0" text=" +) Ball 2's weight: Type in a value for the weight of the second ball (on the right)" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <font>
             <Font size="19.0" />
          </font>
@@ -48,7 +49,7 @@
             <Insets left="40.0" />
          </GridPane.margin>
       </Label>
-      <Label prefHeight="96.0" prefWidth="936.0" text=" +) Kick button: After receiving two inputs, two balls will start moving towards each other for collision to demonstrate Newton's third law" wrapText="true" GridPane.rowIndex="4" GridPane.valignment="TOP">
+      <Label prefHeight="122.0" prefWidth="936.0" text=" +) Kick button: After receiving two inputs, two balls will start moving towards each other for collision to demonstrate Newton's third law" wrapText="true" GridPane.rowIndex="4" GridPane.valignment="TOP">
          <font>
             <Font size="19.0" />
          </font>
@@ -56,9 +57,9 @@
             <Insets left="40.0" />
          </GridPane.margin>
       </Label>
-      <Label prefHeight="96.0" prefWidth="936.0" text="velocity is positive if the ball go from left to right and vice versa" wrapText="true" GridPane.rowIndex="5" GridPane.valignment="TOP">
+      <Label prefHeight="96.0" prefWidth="936.0" text="+) Note: velocity is positive if the ball go from left to right and vice versa" wrapText="true" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <font>
-            <Font size="19.0" />
+            <Font name="System Italic" size="19.0" />
          </font>
          <GridPane.margin>
             <Insets left="40.0" />
