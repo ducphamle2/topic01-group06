@@ -16,7 +16,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -26,43 +25,34 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 /**
- * FXML Controller class
  *
  * @author Duc Pham Le
  */
-public class SecondSceneController implements Initializable {
+public class FirstSceneController implements Initializable {
 
+    private boolean flag;
     @FXML
     private GridPane parentContainer;
 
-    @FXML
-    private Button nextButton;
-
-    @FXML
-    private Button prevButton;
-    
     @FXML
     private ImageView newton;
     
     @FXML
     private Label text;
 
-    private LoadScene sceneLoader = null;
+    private LoadScene sceneLoader = new LoadScene();
 
-    private boolean flag;
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL location, ResourceBundle resources) {
         flag = false;
         
-        // set background color to black
+        // set background color to black !!
         parentContainer.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
-        
+
+        System.out.println("gird pane: " + parentContainer);
         double oldHeight = 716.0;
         double newtonHeight = oldHeight / newton.getFitHeight();
 
@@ -77,7 +67,7 @@ public class SecondSceneController implements Initializable {
 
                 newton.fitHeightProperty().setValue(height / newtonHeight);
                 
-                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 36);
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 25);
             }
         });
 
@@ -90,57 +80,54 @@ public class SecondSceneController implements Initializable {
                 System.out.println("old width: " + oldWidth);
                 newton.fitWidthProperty().setValue(width / newtonWidth);
                 
-                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 36);
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 25);
             }
         });
+
     }
 
-    public void handleBtnClick(ActionEvent e) {
+    @FXML
+    public void handleButtonClick(ActionEvent event) { // this catches the event when clicking the next button
         if (!flag) {
-            sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
-            fadeTransition.setNode(parentContainer);
-            if (e.getSource().equals(nextButton)) {
-                flag = true;
-                fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("ThirdScene.fxml", parentContainer);
-                });
-            } else if (e.getSource().equals(prevButton)) {
-                flag = true;
-                fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("StartBtnWindow.fxml", parentContainer);
-                });
-            } else {
-                System.out.println("Error in button clicked");
-            }
-            fadeTransition.play(); // play transition
+            makeFadeOut();
+            flag = true;
         }
+    }
 
+    private void makeFadeOut() {
+        // using fade transition to fade to another scene
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDelay(Duration.seconds(0)); // fade after 1 sec
+        fadeTransition.setNode(parentContainer);
+        fadeTransition.setFromValue(1); // this is opacity, from 1 to 0 means from clearest to disappear
+        fadeTransition.setToValue(0);
+
+        // load another scene after finishing fading
+        fadeTransition.setOnFinished((ActionEvent event) -> {
+            loadNextScene();
+        });
+        fadeTransition.play();
+    }
+
+    // setup for the second scene
+    private void loadNextScene() {
+        sceneLoader.loadScene("SecondScene.fxml", parentContainer);
     }
 
     public void handleKeyTyped(KeyEvent e) {
         if (!flag) {
-            sceneLoader = new LoadScene();
             FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
-            // go back to prev scene
-            if (e.getCode() == KeyCode.LEFT) {
-                flag = true;
-                fadeTransition.play(); // play transition
-                System.out.println("Left arrow pressed");
-                fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("StartBtnWindow.fxml", parentContainer);
-                });
-            }
             // go forward
             if (e.getCode() == KeyCode.RIGHT) {
                 flag = true;
-                fadeTransition.play(); // play transition
                 System.out.println("right arrow pressed");
+                fadeTransition.play(); // play transition
                 fadeTransition.setOnFinished((ActionEvent event) -> {
-                    sceneLoader.loadScene("ThirdScene.fxml", parentContainer);
+                    sceneLoader.loadScene("SecondScene.fxml", parentContainer);
                 });
             }
         }
     }
+
 }

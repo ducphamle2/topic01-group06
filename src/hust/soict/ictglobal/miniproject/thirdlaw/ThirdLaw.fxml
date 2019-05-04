@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="parentContainer" prefHeight="716.0" prefWidth="1276.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="326.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="801.0" minWidth="10.0" prefWidth="579.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="634.0" minWidth="10.0" prefWidth="379.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="455.0" minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="455.0" minHeight="10.0" prefHeight="293.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="201.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <Label fx:id="newtonText" alignment="CENTER" prefHeight="123.0" prefWidth="323.0" text="Newton's third law" wrapText="true" GridPane.columnSpan="2">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#openDemo" text="Demo" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Line fx:id="line" endX="1175.5" startX="-100.0" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <ImageView fx:id="ball" fitHeight="270.0" fitWidth="692.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@../images/thirdLaw.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="explainText" alignment="CENTER" contentDisplay="CENTER" prefHeight="129.0" prefWidth="859.0" text="When one body exerts a force on a second body, the second body simultaneously exerts a force equal in magnitude and opposite in direction on the first body" wrapText="true" GridPane.columnSpan="3" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="SOMETIMES">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="40.0" />
+         </GridPane.margin>
+      </Label>
+   </children>
+</GridPane>

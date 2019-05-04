@@ -5,9 +5,13 @@
  */
 package hust.soict.ictglobal.miniproject.start;
 
+import hust.soict.ictglobal.miniproject.utils.FadedTransition;
+import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +20,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 /**
  * FXML Controller class
@@ -26,7 +31,7 @@ import javafx.scene.layout.StackPane;
 public class SixthSceneController implements Initializable {
 
     @FXML
-    private StackPane parentContainer;
+    private GridPane parentContainer;
 
     private LoadScene sceneLoader = null;
 
@@ -44,6 +49,9 @@ public class SixthSceneController implements Initializable {
 
     @FXML
     private ImageView book;
+
+    @FXML
+    private ImageView newton;
 
     @FXML
     private Label text;
@@ -73,6 +81,82 @@ public class SixthSceneController implements Initializable {
         physics.setOpacity(0);
         calText.setOpacity(0);
         phyText.setOpacity(0);
+
+        double temp = parentContainer.getBoundsInParent().getHeight();
+        if (temp >= 300 && temp <= 550) {
+            FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+            FontTextAdjustment.adjustFontTextHeight(textTwo, 0, 0, 30);
+            
+        }
+        double temp2 = parentContainer.getBoundsInParent().getWidth();
+        if (temp2 >= 300 * 1.56 && temp2 <= 300 * 1.56 + 250) {
+            FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+            FontTextAdjustment.adjustFontTextWidth(textTwo, 0, 0, 30);
+        }
+
+        // init height and width of components
+        double oldHeight = 716.0;
+        double calculusHeight = oldHeight / calculus.getFitHeight();
+        double physicsTwoHeight = oldHeight / physics.getFitHeight();
+        double bookHeight = oldHeight / book.getFitHeight();
+        double newtonHeight = oldHeight / newton.getFitHeight();
+
+        double oldWidth = 1276.0;
+        double calculusWidth = oldWidth / calculus.getFitWidth();
+        double physicsWidth = oldWidth / physics.getFitWidth();
+        double bookWidth = oldWidth / book.getFitWidth();
+        double newtonWidth = oldWidth / newton.getFitWidth();
+
+        // listen on the changes of the gridpane height and width
+        parentContainer.heightProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double height = (double) newValue;
+                double _oldHeight = (double) oldValue;
+
+                calculus.fitHeightProperty().setValue(height / calculusHeight);
+                physics.fitHeightProperty().setValue(height / physicsTwoHeight);
+                book.fitHeightProperty().setValue(height / bookHeight);
+                newton.fitHeightProperty().setValue(height / newtonHeight);
+                //text.setPrefHeight(height / (oldHeight / textHeight));
+
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 30);
+                FontTextAdjustment.adjustFontTextHeight(textTwo, _oldHeight, height, 30);
+                FontTextAdjustment.adjustFontTextHeight(calText, _oldHeight, height, 21);
+                FontTextAdjustment.adjustFontTextHeight(phyText, _oldHeight, height, 21);
+                
+                if (height < _oldHeight - 100 && height < oldHeight - 50) {
+                    FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+                    FontTextAdjustment.adjustFontTextHeight(textTwo, 0, 0, 30);
+                }
+            }
+        });
+
+        parentContainer.widthProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double width = (double) newValue;
+                double _oldWidth = (double) oldValue;
+
+                System.out.println("width: " + width);
+
+                System.out.println("old width: " + oldWidth);
+                calculus.fitWidthProperty().setValue(width / calculusWidth);
+                physics.fitWidthProperty().setValue(width / physicsWidth);
+                book.fitWidthProperty().setValue(width / bookWidth);
+                newton.fitWidthProperty().setValue(width / newtonWidth);
+
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 30);
+                FontTextAdjustment.adjustFontTextWidth(textTwo, _oldWidth, width, 30);
+                FontTextAdjustment.adjustFontTextWidth(calText, _oldWidth, width, 21);
+                FontTextAdjustment.adjustFontTextWidth(phyText, _oldWidth, width, 21);
+                
+                if (width < _oldWidth - 100 && width < oldWidth - 50) {
+                    FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+                    FontTextAdjustment.adjustFontTextWidth(textTwo, 0, 0, 30);
+                }
+            }
+        });
 
         // transition for text
         FadeTransition fadeTransition = FadedTransition.transition(1, 0, 1);
@@ -116,7 +200,7 @@ public class SixthSceneController implements Initializable {
     public void handleBtnClick(ActionEvent e) {
         if (!flag) {
             sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
             if (e.getSource().equals(nextButton)) {
                 flag = true;
@@ -138,7 +222,7 @@ public class SixthSceneController implements Initializable {
     public void handleKeyTyped(KeyEvent e) {
         if (!flag) {
             sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
             // go back to prev scene
             if (e.getCode() == KeyCode.LEFT) {

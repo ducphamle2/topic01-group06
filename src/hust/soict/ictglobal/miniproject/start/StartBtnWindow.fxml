@@ -5,28 +5,35 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="parentContainer" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyTyped" prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.StartBtnWindowController">
+<GridPane fx:id="parentContainer" onKeyPressed="#handleKeyTyped" prefHeight="716.0" prefWidth="1276.0" style="-fx-background-color: 000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.FirstSceneController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" percentHeight="200.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <ImageView fitHeight="718.0" fitWidth="1281.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="newton" fitHeight="718.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <image>
             <Image backgroundLoading="true" url="@../images/NewtonPic.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleButtonClick" text="Next" StackPane.alignment="TOP_RIGHT">
-         <StackPane.margin>
-            <Insets right="10.0" top="10.0" />
-         </StackPane.margin>
-      </Button>
-      <Label prefHeight="71.0" prefWidth="1174.0" text="This is the biography of Issac Newton. He was born on Jan 4, 1643 in Woolsthorpe, England" textFill="WHITE" wrapText="true" StackPane.alignment="BOTTOM_CENTER">
+      <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleButtonClick" text="Next" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+      <Label fx:id="text" alignment="CENTER" prefHeight="75.0" prefWidth="1235.0" text="Issac Newton was born on Jan 4, 1643, Woolsthorpe, England" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
-            <Font name="System Bold" size="27.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
          <padding>
             <Insets top="10.0" />
          </padding>
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
       </Label>
    </children>
-</StackPane>
+</GridPane>

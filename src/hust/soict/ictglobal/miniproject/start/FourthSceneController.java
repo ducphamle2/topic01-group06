@@ -5,6 +5,8 @@
  */
 package hust.soict.ictglobal.miniproject.start;
 
+import hust.soict.ictglobal.miniproject.utils.FadedTransition;
+import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
@@ -17,9 +19,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 /**
  * FXML Controller class
@@ -29,7 +33,7 @@ import javafx.util.Duration;
 public class FourthSceneController implements Initializable {
 
     @FXML
-    private StackPane parentContainer;
+    private GridPane parentContainer;
 
     @FXML
     private ImageView latin;
@@ -61,29 +65,85 @@ public class FourthSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        double temp = parentContainer.getBoundsInParent().getHeight();
+        if (temp >= 300 && temp <= 550) {
+            FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+        }
+        double temp2 = parentContainer.getBoundsInParent().getWidth();
+        if (temp2 >= 300 * 1.56 && temp2 <= 300 * 1.56 + 250) {
+            FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+        }
         flag = false;
+        kidStudying.setOpacity(0);
         latin.setOpacity(0);
         school.setOpacity(0);
         math.setOpacity(0);
         text.setOpacity(0);
-        // TODO
+        System.out.println("parent containner: " + parentContainer);
 
-        // transition for kid pic
-        Line line = new Line();
-        int kidPicX = 270;
-        int kidPicY = 120;
-        line.setStartX(kidPicX - 700);
-        line.setStartY(kidPicY);
-        line.setEndX(kidPicX);
-        line.setEndY(kidPicY);
+        // init height and width of components
+        double oldHeight = 716.0;
+        double schoolHeight = oldHeight / school.getFitHeight();
+        double mathHeight = oldHeight / math.getFitHeight();
+        double latinHeight = oldHeight / latin.getFitHeight();
+        double kidHeight = oldHeight / kidStudying.getFitHeight();
+        double textHeight = oldHeight / text.getHeight();
 
-        PathTransition transition = new PathTransition();
-        transition.setNode(kidStudying);
-        transition.setDuration(Duration.seconds(2));
-        transition.setPath(line);
+        double oldWidth = 1276.0;
+        double schoolWidth = oldWidth / school.getFitWidth();
+        double mathWidth = oldWidth / math.getFitWidth();
+        double latinWidth = oldWidth / latin.getFitWidth();
+        double kidWidth = oldWidth / kidStudying.getFitWidth();
+        double textWidth = oldWidth / text.getWidth();
+        
+        // listen on the changes of the gridpane height and width
+        parentContainer.heightProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double height = (double) newValue;
+                double _oldHeight = (double) oldValue;
+                
+                school.fitHeightProperty().setValue(height / schoolHeight);
+                math.fitHeightProperty().setValue(height / mathHeight);
+                latin.fitHeightProperty().setValue(height / latinHeight);
+                kidStudying.fitHeightProperty().setValue(height / kidHeight);
+                //text.setPrefHeight(height / (oldHeight / textHeight));
+                
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 30);
+                
+                if (height < _oldHeight - 100 && height < oldHeight - 50) {
+                    FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+                }
+            }
+        });
 
+        parentContainer.widthProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double width = (double) newValue;
+                double _oldWidth = (double) oldValue;
+
+                System.out.println("old width: " + oldWidth);
+                school.fitWidthProperty().setValue(width / schoolWidth);
+                math.fitWidthProperty().setValue(width / mathWidth);
+                latin.fitWidthProperty().setValue(width / latinWidth);
+                kidStudying.fitWidthProperty().setValue(width / kidWidth);
+                //text.setPrefWidth(width / (oldWidth / textWidth));
+                
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 30);
+                
+                if (width < _oldWidth - 100 && width < oldWidth - 50) {
+                    FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+                }
+            }
+        });
+        
+        FadeTransition fadeTransition = FadedTransition.transition(1, 0, 1);
+        fadeTransition.setNode(kidStudying);
+        fadeTransition.play();
+        
         // for other images
-        FadeTransition fadeTransition = FadedTransition.transition(3, 0, 1);
+        fadeTransition = FadedTransition.transition(3, 0, 1);
         fadeTransition.setNode(school);
         fadeTransition.play();
 
@@ -98,14 +158,12 @@ public class FourthSceneController implements Initializable {
         fadeTransition = FadedTransition.transition(5, 0, 1);
         fadeTransition.setNode(math);
         fadeTransition.play();
-
-        transition.play();
     }
 
     public void handleBtnClick(ActionEvent e) {
         if (!flag) {
             sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
             if (e.getSource().equals(nextButton)) {
                 flag = true;
@@ -127,7 +185,7 @@ public class FourthSceneController implements Initializable {
     public void handleKeyTyped(KeyEvent e) {
         if (!flag) {
             sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
             // go back to prev scene
             if (e.getCode() == KeyCode.LEFT) {

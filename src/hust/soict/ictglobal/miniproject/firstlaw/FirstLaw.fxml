@@ -1,11 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.firstlaw.FirstLawController">
-    
-</AnchorPane>
+<GridPane fx:id="parentContainer" prefHeight="716.0" prefWidth="1276.0" style="-fx-background-color: FFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.firstlaw.FirstLawController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="421.0" minWidth="10.0" prefWidth="171.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="421.0" minWidth="10.0" prefWidth="130.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="956.0" minWidth="10.0" prefWidth="767.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="956.0" minWidth="10.0" prefWidth="122.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="146.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="172.0" minHeight="0.0" prefHeight="168.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="358.0" minHeight="10.0" prefHeight="190.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="252.0" minHeight="10.0" prefHeight="252.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <Label fx:id="text" text="Newton's first law" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+         <font>
+            <Font size="27.0" />
+         </font>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="textTwo" prefHeight="104.0" prefWidth="574.0" text="In an inertial frame of reference, an object either remains at rest or continues to move at a constant velocity, unless acted upon by a force" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+         <GridPane.margin>
+            <Insets bottom="20.0" />
+         </GridPane.margin>
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Button fx:id="startBtn" mnemonicParsing="false" onAction="#openDemo" prefHeight="66.0" prefWidth="147.0" text="Demo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Line fx:id="line" endX="881.8787231445312" endY="-2.124199628829956" startX="2158.5859375" startY="-2.1241705417633057" GridPane.columnSpan="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <ImageView fx:id="ball" fitHeight="215.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@../images/circle_2.png" />
+         </image>
+         <GridPane.margin>
+            <Insets bottom="2.0" left="40.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fx:id="ballTwo" fitHeight="212.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@../images/circle_1.png" />
+         </image>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </ImageView>
+   </children>
+</GridPane>

@@ -5,11 +5,15 @@
  */
 package hust.soict.ictglobal.miniproject.start;
 
+import hust.soict.ictglobal.miniproject.utils.FadedTransition;
+import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
 /**
@@ -29,7 +33,7 @@ import javafx.util.Duration;
 public class FifthSceneController implements Initializable {
 
     @FXML
-    private StackPane parentContainer;
+    private GridPane parentContainer;
 
     @FXML
     private ImageView ATest;
@@ -74,6 +78,83 @@ public class FifthSceneController implements Initializable {
         ATest.setOpacity(0);
         ATestTwo.setOpacity(0);
         text.setOpacity(0);
+
+        System.out.println("temp: " + parentContainer.getBoundsInParent().getHeight());
+        double temp = parentContainer.getBoundsInParent().getHeight();
+        if (temp >= 300 && temp <= 550) {
+            FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+        }
+        System.out.println("temp2: " + parentContainer.getBoundsInParent().getWidth());
+        double temp2 = parentContainer.getBoundsInParent().getWidth();
+        if (temp2 >= 300 * 1.56 && temp2 <= 300 * 1.56 + 250) {
+            FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+        }
+
+        // init height and width of components
+        double oldHeight = 716.0;
+        double aTestHeight = oldHeight / ATest.getFitHeight();
+        double aTestTwoHeight = oldHeight / ATestTwo.getFitHeight();
+        double cloudHeight = oldHeight / cloud.getFitHeight();
+        double cloutTwoHeight = oldHeight / cloudTwo.getFitHeight();
+        double cloudThreeHeight = oldHeight / cloudThree.getFitHeight();
+        double studentHeight = oldHeight / student.getFitHeight();
+        double schoolHeight = oldHeight / school.getFitHeight();
+
+        double oldWidth = 1276.0;
+        double ATestWidth = oldWidth / ATest.getFitWidth();
+        double ATestTwoWidth = oldWidth / ATestTwo.getFitWidth();
+        double cloudWidth = oldWidth / cloud.getFitWidth();
+        double cloudTwoWidth = oldWidth / cloudTwo.getFitWidth();
+        double cloudThreeWidth = oldWidth / cloudThree.getFitWidth();
+        double studentWidth = oldWidth / student.getFitWidth();
+        double schoolWidth = oldWidth / school.getFitWidth();
+
+        // listen on the changes of the gridpane height and width
+        parentContainer.heightProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double height = (double) newValue;
+                double _oldHeight = (double) oldValue;
+
+                ATest.fitHeightProperty().setValue(height / aTestHeight);
+                ATestTwo.fitHeightProperty().setValue(height / aTestTwoHeight);
+                cloud.fitHeightProperty().setValue(height / cloudHeight);
+                cloudTwo.fitHeightProperty().setValue(height / cloutTwoHeight);
+                cloudThree.fitHeightProperty().setValue(height / cloudThreeHeight);
+                student.fitHeightProperty().setValue(height / studentHeight);
+                school.fitHeightProperty().setValue(height / schoolHeight);
+                //text.setPrefHeight(height / (oldHeight / textHeight));
+
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 36);
+                
+                if (height < _oldHeight - 100 && height < oldHeight - 50) {
+                    FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+                }
+            }
+        });
+
+        parentContainer.widthProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double width = (double) newValue;
+                double _oldWidth = (double) oldValue;
+
+                System.out.println("old width: " + oldWidth);
+                ATest.fitWidthProperty().setValue(width / ATestWidth);
+                ATestTwo.fitWidthProperty().setValue(width / ATestTwoWidth);
+                cloud.fitWidthProperty().setValue(width / cloudWidth);
+                cloudTwo.fitWidthProperty().setValue(width / cloudTwoWidth);
+                cloudThree.fitWidthProperty().setValue(width / cloudThreeWidth);
+                student.fitWidthProperty().setValue(width / studentWidth);
+                school.fitWidthProperty().setValue(width / schoolWidth);
+                //text.setPrefWidth(width / (oldWidth / textWidth));
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 36);
+                
+                if (width < _oldWidth - 100 && width < oldWidth - 50) {
+                    FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+                }
+            }
+        });
 
         // TODO
         FadeTransition fadeTransition = FadedTransition.transition(1, 0, 1);
@@ -122,7 +203,7 @@ public class FifthSceneController implements Initializable {
     public void handleBtnClick(ActionEvent e) {
         if (!flag) {
             sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
             if (e.getSource().equals(nextButton)) {
                 flag = true;
@@ -144,7 +225,7 @@ public class FifthSceneController implements Initializable {
     public void handleKeyTyped(KeyEvent e) {
         if (!flag) {
             sceneLoader = new LoadScene();
-            FadeTransition fadeTransition = FadedTransition.transition(1, 1, 0); // setup transition
+            FadeTransition fadeTransition = FadedTransition.transition(0, 1, 0); // setup transition
             fadeTransition.setNode(parentContainer);
             // go back to prev scene
             if (e.getCode() == KeyCode.LEFT) {
