@@ -77,8 +77,8 @@ public class ThirdLawDemoController implements Initializable {
             int ball1Weight = Integer.parseInt(ball1WreightText);
             int ball2Weight = Integer.parseInt(ball2WreightText);
 
-            double ball1Velocity = ((ball1Weight - ball2Weight) * 30f - 2 * ball2Weight * 30f)/(ball1Weight + ball2Weight);
-            double ball2Velocity = (-(ball2Weight - ball1Weight) * 30f + 2 * ball1Weight * 30f)/(ball1Weight + ball2Weight);
+            double ball1Velocity = ((ball1Weight - ball2Weight) * 30f - 2 * ball2Weight * 30f) / (ball1Weight + ball2Weight);
+            double ball2Velocity = (-(ball2Weight - ball1Weight) * 30f + 2 * ball1Weight * 30f) / (ball1Weight + ball2Weight);
 
             ball1vText.setText(String.format("v1' = %.2f", ball1Velocity));
             ball2vText.setText(String.format("v2' = %.2f", ball2Velocity));
@@ -94,8 +94,7 @@ public class ThirdLawDemoController implements Initializable {
             rotateTransition2.setInterpolator(Interpolator.LINEAR);
             rotateTransition2.setByAngle(-360);
             rotateTransition2.play();
-
-
+        }
     }
 
     @FXML

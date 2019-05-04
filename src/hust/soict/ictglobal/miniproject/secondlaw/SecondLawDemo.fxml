@@ -54,7 +54,7 @@
             <Font size="20.0" />
          </font></Label>
       <TextField fx:id="weightInput" prefHeight="31.0" prefWidth="192.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" onAction="#kickStarted" text="Kick!!!" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+      <Button fx:id="startBtn" mnemonicParsing="false" onAction="#kickStarted" text="Kick!!!" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin></Button>

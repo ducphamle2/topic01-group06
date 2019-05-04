@@ -12,14 +12,14 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawDemoController">
    <children>
       <Line endX="492.5" layoutX="107.0" layoutY="248.0" startX="-107.0" />
-      <Group layoutX="179.0" layoutY="201.0">
+      <Group fx:id="ball1" layoutX="179.0" layoutY="201.0">
          <children>
             <Circle fill="#8495a4" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
             <Line endY="46.0" startY="-46.0" />
             <Line endX="46.0" startX="-46.0" />
          </children>
       </Group>
-      <Group layoutX="420.0" layoutY="201.0">
+      <Group fx:id="ball2" layoutX="420.0" layoutY="201.0">
          <children>
             <Circle fill="#8495a4" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
             <Line endY="46.0" startY="-46.0" />
@@ -33,7 +33,7 @@
       <Button layoutX="489.0" layoutY="295.0" mnemonicParsing="false" onAction="#startDemo" text="Start" />
       <Button layoutX="277.0" layoutY="334.0" mnemonicParsing="false" onAction="#onActionHelpClicked" text="Help" />
       <Text layoutX="102.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initial velocity: 30m/s" />
-      <Text layoutX="122.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v1'" wrappingWidth="50.0" />
-      <Text layoutX="383.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v2'" />
+      <Text fx:id="ball1vText" layoutX="122.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v1'" wrappingWidth="50.0" />
+      <Text fx:id="ball2vText" layoutX="383.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v2'" />
    </children>
 </AnchorPane>

@@ -53,9 +53,6 @@ public class SecondLawDemoController implements Initializable {
     @FXML
     private Button startBtn;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
     @FXML
     private GridPane parentContainer;
 
@@ -179,6 +176,8 @@ public class SecondLawDemoController implements Initializable {
 
             timeline.playFromStart();
 
+            timeline.play();
+
             new Thread(() -> {
                 try {
                     double x = ball.getTranslateX();
@@ -197,19 +196,6 @@ public class SecondLawDemoController implements Initializable {
                     pathTransition.stop();
                     ball.setTranslateX(x);
                     ball.setTranslateY(y);
-            timeline.play();
-
-            new Thread(() -> {
-                try {
-                    Thread.sleep(250);
-
-                    PathTransition pathTransition = new PathTransition(Duration.millis(1000), ball);
-                    CubicCurveTo curve = new CubicCurveTo(100f, 100f, 200f, 100f, 600f, 600f);
-                    Path path = new Path();
-                    path.getElements().addAll(new MoveTo(ball.getCenterX(), ball.getCenterY()));
-                    path.getElements().addAll(curve);
-                    pathTransition.setPath(path);
-                    pathTransition.play();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -218,7 +204,7 @@ public class SecondLawDemoController implements Initializable {
     }
 
     @FXML
-    private void onActionHelpClicked() throws IOException{
+    private void onActionHelpClicked() {
         Stage stage = new Stage();
         // create a new window using FirstLaw gui
         try {
