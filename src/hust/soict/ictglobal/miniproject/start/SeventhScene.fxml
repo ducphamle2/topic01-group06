@@ -51,7 +51,7 @@
             <Font name="System Italic" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="text" prefHeight="170.0" prefWidth="1133.0" text="The three laws of motion have a variety of applications in theoretical physics, mathematics, or in real-life situations such as: sky diving, frictions" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="text" alignment="CENTER" prefHeight="170.0" prefWidth="1133.0" text="The three laws of motion have a variety of applications in theoretical physics, mathematics, or in real-life situations such as: sky diving, frictions" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>

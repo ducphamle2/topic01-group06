@@ -61,7 +61,7 @@
             <Insets top="120.0" />
          </GridPane.margin>
       </ImageView>
-      <Label fx:id="text" prefHeight="156.0" prefWidth="1263.0" text="During his teenage years, he attended the King’s school, Grantham which taught him Latin &amp; Greeks, mathematics" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+      <Label fx:id="text" alignment="CENTER" prefHeight="156.0" prefWidth="1263.0" text="During his teenage years, he attended the King’s school, Grantham which taught him Latin &amp; Greeks, mathematics" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>

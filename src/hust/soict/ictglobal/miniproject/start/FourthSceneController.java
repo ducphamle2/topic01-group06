@@ -66,11 +66,11 @@ public class FourthSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         double temp = parentContainer.getBoundsInParent().getHeight();
-        if (temp >= 600 && temp <= 700) {
+        if (temp >= 300 && temp <= 550) {
             FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
         }
         double temp2 = parentContainer.getBoundsInParent().getWidth();
-        if (temp2 >= (1276 / 716) * 600 && temp2 <= (1276 / 716) * 600 + 100) {
+        if (temp2 >= 300 * 1.56 && temp2 <= 300 * 1.56 + 250) {
             FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
         }
         flag = false;

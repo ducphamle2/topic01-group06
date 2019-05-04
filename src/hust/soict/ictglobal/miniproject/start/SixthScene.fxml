@@ -73,7 +73,7 @@
             <Insets bottom="170.0" />
          </GridPane.margin>
       </ImageView>
-      <Label fx:id="textTwo" prefHeight="127.0" prefWidth="1125.0" text="The three laws were then first compiled in his Philosophiæ Naturalis Principia Mathematica book, and published in 1687" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="textTwo" alignment="CENTER" prefHeight="127.0" prefWidth="1125.0" text="The three laws were then first compiled in his Philosophiæ Naturalis Principia Mathematica book, and published in 1687" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
