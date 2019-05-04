@@ -69,7 +69,7 @@
             <Insets left="20.0" top="170.0" />
          </GridPane.margin>
       </ImageView>
-      <Label fx:id="text" prefHeight="128.0" prefWidth="1070.0" text="His mother remarried when Issac was 3 years old and left him in the care of his grandparents" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="text" alignment="CENTER" prefHeight="128.0" prefWidth="1070.0" text="His mother remarried when Issac was 3 years old and left him in the care of his grandparents" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>

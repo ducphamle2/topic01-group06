@@ -75,12 +75,12 @@ public class SeventhSceneController implements Initializable {
         text.setOpacity(0);
         
         double temp = parentContainer.getBoundsInParent().getHeight();
-        if (temp >= 400 && temp <= 650) {
+        if (temp >= 300 && temp <= 550) {
             FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
             
         }
         double temp2 = parentContainer.getBoundsInParent().getWidth();
-        if (temp2 >= (1276 / 716) * 600 && temp2 <= (1276 / 716) * 600 + 100) {
+        if (temp2 >= 300 * 1.56 && temp2 <= 300 * 1.56 + 250) {
             FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
         }
         

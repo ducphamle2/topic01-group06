@@ -23,17 +23,17 @@
          </image>
       </ImageView>
       <Button fx:id="prevButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" GridPane.valignment="TOP" />
-      <Label fx:id="firstText" prefHeight="166.0" prefWidth="758.0" text="He died in his sleep on 31 March 1727, and was buried in Westminster Abbey. " textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="firstText" alignment="CENTER" prefHeight="166.0" prefWidth="758.0" text="He died in his sleep on 31 March 1727, and was buried in Westminster Abbey. " textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="secondText" opacity="0.0" prefHeight="223.0" prefWidth="878.0" text="After his death, Newton's hair was examined and found to contain mercury, probably resulting from his alchemical pursuits." textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="secondText" alignment="CENTER" opacity="0.0" prefHeight="223.0" prefWidth="878.0" text="After his death, Newton's hair was examined and found to contain mercury, probably resulting from his alchemical pursuits." textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="thirdText" opacity="0.0" prefHeight="179.0" prefWidth="741.0" text="Mercury poisoning could explain Newton's eccentricity in late life..." textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+      <Label fx:id="thirdText" alignment="CENTER" opacity="0.0" prefHeight="179.0" prefWidth="741.0" text="Mercury poisoning could explain Newton's eccentricity in late life..." textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>

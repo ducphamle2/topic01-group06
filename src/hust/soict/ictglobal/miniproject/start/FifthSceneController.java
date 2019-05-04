@@ -79,12 +79,14 @@ public class FifthSceneController implements Initializable {
         ATestTwo.setOpacity(0);
         text.setOpacity(0);
 
+        System.out.println("temp: " + parentContainer.getBoundsInParent().getHeight());
         double temp = parentContainer.getBoundsInParent().getHeight();
-        if (temp >= 600 && temp <= 700) {
+        if (temp >= 300 && temp <= 550) {
             FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
         }
+        System.out.println("temp2: " + parentContainer.getBoundsInParent().getWidth());
         double temp2 = parentContainer.getBoundsInParent().getWidth();
-        if (temp2 >= (1276 / 716) * 600 && temp2 <= (1276 / 716) * 600 + 100) {
+        if (temp2 >= 300 * 1.56 && temp2 <= 300 * 1.56 + 250) {
             FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
         }
 
