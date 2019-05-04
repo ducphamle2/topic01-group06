@@ -1,7 +1,6 @@
 package hust.soict.ictglobal.miniproject.secondlaw;
 
 import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
-import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PathTransition;
@@ -15,7 +14,6 @@ import javafx.scene.shape.CubicCurveTo;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
-import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
