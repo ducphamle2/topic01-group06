@@ -65,7 +65,16 @@ public class FourthSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        double temp = parentContainer.getBoundsInParent().getHeight();
+        if (temp >= 600 && temp <= 700) {
+            FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+        }
+        double temp2 = parentContainer.getBoundsInParent().getWidth();
+        if (temp2 >= (1276 / 716) * 600 && temp2 <= (1276 / 716) * 600 + 100) {
+            FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+        }
         flag = false;
+        kidStudying.setOpacity(0);
         latin.setOpacity(0);
         school.setOpacity(0);
         math.setOpacity(0);
@@ -93,14 +102,18 @@ public class FourthSceneController implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 double height = (double) newValue;
                 double _oldHeight = (double) oldValue;
-
+                
                 school.fitHeightProperty().setValue(height / schoolHeight);
                 math.fitHeightProperty().setValue(height / mathHeight);
                 latin.fitHeightProperty().setValue(height / latinHeight);
                 kidStudying.fitHeightProperty().setValue(height / kidHeight);
                 //text.setPrefHeight(height / (oldHeight / textHeight));
                 
-                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 36);
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 30);
+                
+                if (height < _oldHeight - 100 && height < oldHeight - 50) {
+                    FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+                }
             }
         });
 
@@ -117,26 +130,20 @@ public class FourthSceneController implements Initializable {
                 kidStudying.fitWidthProperty().setValue(width / kidWidth);
                 //text.setPrefWidth(width / (oldWidth / textWidth));
                 
-                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 36);
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 30);
+                
+                if (width < _oldWidth - 100 && width < oldWidth - 50) {
+                    FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+                }
             }
         });
-        // TODO
-        // transition for kid pic
-        Line line = new Line();
-        int kidPicX = 270;
-        int kidPicY = 120;
-        line.setStartX(kidPicX - 700);
-        line.setStartY(kidPicY);
-        line.setEndX(kidPicX + 100);
-        line.setEndY(kidPicY);
-
-        PathTransition transition = new PathTransition();
-        transition.setNode(kidStudying);
-        transition.setDuration(Duration.seconds(2));
-        transition.setPath(line);
-
+        
+        FadeTransition fadeTransition = FadedTransition.transition(1, 0, 1);
+        fadeTransition.setNode(kidStudying);
+        fadeTransition.play();
+        
         // for other images
-        FadeTransition fadeTransition = FadedTransition.transition(3, 0, 1);
+        fadeTransition = FadedTransition.transition(3, 0, 1);
         fadeTransition.setNode(school);
         fadeTransition.play();
 
@@ -151,8 +158,6 @@ public class FourthSceneController implements Initializable {
         fadeTransition = FadedTransition.transition(5, 0, 1);
         fadeTransition.setNode(math);
         fadeTransition.play();
-
-        transition.play();
     }
 
     public void handleBtnClick(ActionEvent e) {

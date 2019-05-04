@@ -26,7 +26,7 @@ public class JavaNewton extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setTitle("Something");
+        stage.setTitle("Newton's laws application");
         stage.setResizable(false);
         stage.show();
     }

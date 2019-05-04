@@ -25,6 +25,9 @@ public class MenuBtnWindowController {
             Parent root = FXMLLoader.load(getClass().getResource(fxmlName));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            // temp fixed min size of the stage
+            stage.setMinWidth((1276 * 600)/ 716);
+            stage.setMinHeight(600);
             //stage.setMaximized(true);
             //stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL); // prevent from using the main windows

@@ -74,6 +74,16 @@ public class SeventhSceneController implements Initializable {
         collisionText.setOpacity(0);
         text.setOpacity(0);
         
+        double temp = parentContainer.getBoundsInParent().getHeight();
+        if (temp >= 400 && temp <= 650) {
+            FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+            
+        }
+        double temp2 = parentContainer.getBoundsInParent().getWidth();
+        if (temp2 >= (1276 / 716) * 600 && temp2 <= (1276 / 716) * 600 + 100) {
+            FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+        }
+        
         // init height and width of components
         double oldHeight = 716.0;
         double divingHeight = oldHeight / diving.getFitHeight();
@@ -96,9 +106,13 @@ public class SeventhSceneController implements Initializable {
                 friction.fitHeightProperty().setValue(height / frictionHeight);
                 collision.fitHeightProperty().setValue(height / collíionHeight);
                 
-                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 36);
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 30);
                 FontTextAdjustment.adjustFontTextHeight(divingText, _oldHeight, height, 21);
                 FontTextAdjustment.adjustFontTextHeight(collisionText, _oldHeight, height, 21);
+                
+                if (height < _oldHeight - 100 && height < oldHeight - 50) {
+                    FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+                }
             }
         });
 
@@ -113,9 +127,13 @@ public class SeventhSceneController implements Initializable {
                 friction.fitWidthProperty().setValue(width / frictionWidth);
                 collision.fitWidthProperty().setValue(width / collíionWidth);
                 
-                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 36);
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 30);
                 FontTextAdjustment.adjustFontTextWidth(divingText, _oldWidth, width, 21);
                 FontTextAdjustment.adjustFontTextWidth(collisionText, _oldWidth, width, 21);
+                
+                if (width < _oldWidth - 100 && width < oldWidth - 50) {
+                    FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+                }
             }
         });
 

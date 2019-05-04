@@ -38,10 +38,10 @@ public class SecondLawDemoController implements Initializable {
     private TextField weightInput;
 
     @FXML
-    private Text accelerationText;
+    private Label accelerationText;
 
     @FXML
-    private Text distanceText;
+    private Label distanceText;
 
     @FXML
     private Line kickingLeg;
@@ -64,6 +64,7 @@ public class SecondLawDemoController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
         // init height and width of components
         double oldHeight = 716.0;
         double ballHeight = oldHeight / (ball.getRadius());
@@ -71,10 +72,6 @@ public class SecondLawDemoController implements Initializable {
         double oldWidth = 1276.0;
         double ballWidth = oldWidth / (ball.getRadius());
         System.out.println("width of textField: " + forceInput.getPrefWidth());
-        
-        // fix the min width of the textfield so that they dont get too small
-        forceInput.setMinWidth(forceInput.getPrefWidth() / 1.25);
-        weightInput.setMinWidth(weightInput.getPrefWidth() / 1.25);
         
         // listen on the changes of the gridpane height and width
         parentContainer.heightProperty().addListener(new ChangeListener() {
@@ -107,7 +104,18 @@ public class SecondLawDemoController implements Initializable {
                 line.setScaleX(width);
             }
         });
-        
+
+        forceInput.textProperty().addListener((observable, oldValue, newValue) -> {
+            String text = newValue;
+            if (!newValue.matches("\\d*")) {
+                text = newValue.replaceAll("[^\\d]", "");
+            }
+            if (!text.equals("") && Integer.parseInt(text) > 5000) {
+                text = "5000";
+            }
+            forceInput.setText(text);
+        });
+
         forceInput.textProperty().addListener((observable, oldValue, newValue) -> {
             String text = newValue;
             if (!newValue.matches("\\d*")) {

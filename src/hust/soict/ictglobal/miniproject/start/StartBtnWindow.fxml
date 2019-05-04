@@ -18,19 +18,22 @@
       <RowConstraints minHeight="10.0" percentHeight="200.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <ImageView fx:id="newton" fitHeight="718.0" fitWidth="1276.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <ImageView fx:id="newton" fitHeight="718.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <image>
             <Image backgroundLoading="true" url="@../images/NewtonPic.jpg" />
          </image>
       </ImageView>
       <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleButtonClick" text="Next" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
-      <Label fx:id="text" alignment="CENTER" prefHeight="71.0" prefWidth="1174.0" text="This is the biography of Issac Newton. He was born on Jan 4, 1643 in Woolsthorpe, England" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="text" alignment="CENTER" prefHeight="75.0" prefWidth="1235.0" text="Issac Newton was born on Jan 4, 1643, Woolsthorpe, England" textFill="WHITE" wrapText="true" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
-            <Font name="System Bold" size="25.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
          <padding>
             <Insets top="10.0" />
          </padding>
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
       </Label>
    </children>
 </GridPane>
