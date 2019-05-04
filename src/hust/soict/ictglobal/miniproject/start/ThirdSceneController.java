@@ -75,6 +75,14 @@ public class ThirdSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        double temp = parentContainer.getBoundsInParent().getHeight();
+        if (temp >= 600 && temp <= 700) {
+            FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+        }
+        double temp2 = parentContainer.getBoundsInParent().getWidth();
+        if (temp2 >= (1276 / 716) * 600 && temp2 <= (1276 / 716) * 600 + 100) {
+            FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+        }
 
         // init height and width of components
         double oldHeight = 716.0;
@@ -110,7 +118,11 @@ public class ThirdSceneController implements Initializable {
                 textbox.fitHeightProperty().setValue(height / textboxHeight);
                 houseTwo.fitHeightProperty().setValue(height / houseTwoHeight);
                 
-                FontTextAdjustment.adjustFontTextHeight(text, old, height, 36); // adjust font w.r.t our pane
+                FontTextAdjustment.adjustFontTextHeight(text, old, height, 30); // adjust font w.r.t our pane
+                
+                if (height < old - 100 && height < oldHeight - 50) {
+                    FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+                }
             }
         });
 
@@ -130,7 +142,11 @@ public class ThirdSceneController implements Initializable {
                 textbox.fitWidthProperty().setValue(width / textboxWidth);
                 houseTwo.fitWidthProperty().setValue(width / houseTwoWidth);
                 
-                FontTextAdjustment.adjustFontTextWidth(text, old, width, 36);
+                FontTextAdjustment.adjustFontTextWidth(text, old, width, 30);
+                
+                if (width < old - 100 && width < oldWidth - 50) {
+                    FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+                }
             }
         });
 

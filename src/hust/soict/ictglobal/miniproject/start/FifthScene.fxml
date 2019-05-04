@@ -12,23 +12,25 @@
 
 <GridPane fx:id="parentContainer" onKeyPressed="#handleKeyTyped" prefHeight="716.0" prefWidth="1276.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.FifthSceneController">
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="780.0" minWidth="10.0" percentWidth="80.0" prefWidth="638.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="638.0" minWidth="10.0" percentWidth="80.0" prefWidth="638.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="780.0" minWidth="10.0" percentWidth="51.0" prefWidth="638.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="780.0" minWidth="10.0" percentWidth="75.0" prefWidth="638.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="638.0" minWidth="10.0" percentWidth="114.0" prefWidth="638.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="358.0" minHeight="10.0" percentHeight="80.0" prefHeight="334.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="308.0" minHeight="0.0" percentHeight="80.0" prefHeight="200.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="175.0" minHeight="10.0" percentHeight="80.0" prefHeight="158.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="269.0" minHeight="10.0" percentHeight="80.0" prefHeight="269.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
       <Button fx:id="prevButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" GridPane.valignment="TOP" />
-      <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Next" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
-      <Label fx:id="text" prefHeight="128.0" prefWidth="1083.0" text="June 1661, he was admitted to Trinity College, Cambridge, where he excelled and achieved the top rank" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Next" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+      <Label fx:id="text" prefHeight="128.0" prefWidth="1187.0" text="June 1661, he was admitted to Trinity College, Cambridge, where he excelled and achieved the top rank" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <font>
-            <Font name="System Bold" size="40.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <ImageView fx:id="student" fitHeight="409.0" fitWidth="426.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+      <ImageView fx:id="student" fitHeight="375.0" fitWidth="383.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="BASELINE" GridPane.vgrow="SOMETIMES">
          <image>
             <Image url="@../images/college_student.png" />
          </image>
@@ -36,7 +38,7 @@
             <Insets right="60.0" />
          </GridPane.margin>
       </ImageView>
-      <ImageView fx:id="school" fitHeight="305.0" fitWidth="626.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+      <ImageView fx:id="school" fitHeight="270.0" fitWidth="595.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="TOP" GridPane.vgrow="SOMETIMES">
          <image>
             <Image url="@../images/university.jpg" />
          </image>
@@ -52,12 +54,12 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </ImageView>
-      <ImageView fx:id="ATest" fitHeight="150.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.vgrow="SOMETIMES">
+      <ImageView fx:id="ATest" fitHeight="150.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
          <image>
             <Image url="@../images/A_test.png" />
          </image>
          <GridPane.margin>
-            <Insets bottom="200.0" left="50.0" />
+            <Insets left="50.0" />
          </GridPane.margin>
       </ImageView>
       <ImageView fx:id="cloudThree" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
@@ -68,7 +70,7 @@
             <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </GridPane.margin>
       </ImageView>
-      <ImageView fx:id="cloud" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+      <ImageView fx:id="cloud" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
          <image>
             <Image url="@../images/cloud.png" />
          </image>
@@ -76,12 +78,12 @@
             <Insets bottom="40.0" />
          </GridPane.margin>
       </ImageView>
-      <ImageView fx:id="cloudTwo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+      <ImageView fx:id="cloudTwo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
          <image>
             <Image url="@../images/cloud2.png" />
          </image>
          <GridPane.margin>
-            <Insets right="150.0" />
+            <Insets right="100.0" />
          </GridPane.margin>
       </ImageView>
    </children>

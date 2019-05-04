@@ -78,7 +78,16 @@ public class FifthSceneController implements Initializable {
         ATest.setOpacity(0);
         ATestTwo.setOpacity(0);
         text.setOpacity(0);
-        
+
+        double temp = parentContainer.getBoundsInParent().getHeight();
+        if (temp >= 600 && temp <= 700) {
+            FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+        }
+        double temp2 = parentContainer.getBoundsInParent().getWidth();
+        if (temp2 >= (1276 / 716) * 600 && temp2 <= (1276 / 716) * 600 + 100) {
+            FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+        }
+
         // init height and width of components
         double oldHeight = 716.0;
         double aTestHeight = oldHeight / ATest.getFitHeight();
@@ -97,7 +106,7 @@ public class FifthSceneController implements Initializable {
         double cloudThreeWidth = oldWidth / cloudThree.getFitWidth();
         double studentWidth = oldWidth / student.getFitWidth();
         double schoolWidth = oldWidth / school.getFitWidth();
-        
+
         // listen on the changes of the gridpane height and width
         parentContainer.heightProperty().addListener(new ChangeListener() {
             @Override
@@ -113,8 +122,12 @@ public class FifthSceneController implements Initializable {
                 student.fitHeightProperty().setValue(height / studentHeight);
                 school.fitHeightProperty().setValue(height / schoolHeight);
                 //text.setPrefHeight(height / (oldHeight / textHeight));
-                
+
                 FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 36);
+                
+                if (height < _oldHeight - 100 && height < oldHeight - 50) {
+                    FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+                }
             }
         });
 
@@ -134,6 +147,10 @@ public class FifthSceneController implements Initializable {
                 school.fitWidthProperty().setValue(width / schoolWidth);
                 //text.setPrefWidth(width / (oldWidth / textWidth));
                 FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 36);
+                
+                if (width < _oldWidth - 100 && width < oldWidth - 50) {
+                    FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+                }
             }
         });
 

@@ -39,10 +39,10 @@ public class SecondLawDemoController implements Initializable {
     private TextField weightInput;
 
     @FXML
-    private Text accelerationText;
+    private Label accelerationText;
 
     @FXML
-    private Text distanceText;
+    private Label distanceText;
 
     @FXML
     private Line kickingLeg;
@@ -75,10 +75,6 @@ public class SecondLawDemoController implements Initializable {
         double oldWidth = 1276.0;
         double ballWidth = oldWidth / (ball.getRadius());
         System.out.println("width of textField: " + forceInput.getPrefWidth());
-
-        // fix the min width of the textfield so that they dont get too small
-        forceInput.setMinWidth(forceInput.getPrefWidth() / 1.25);
-        weightInput.setMinWidth(weightInput.getPrefWidth() / 1.25);
 
         // listen on the changes of the gridpane height and width
         parentContainer.heightProperty().addListener(new ChangeListener() {

@@ -34,7 +34,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label alignment="CENTER" layoutX="251.0" layoutY="77.0" prefHeight="108.0" prefWidth="308.0" text="NEWTON WHO ?" textAlignment="RIGHT" textFill="#f54b4b">
+      <Label alignment="CENTER" layoutX="173.0" layoutY="77.0" prefHeight="108.0" prefWidth="464.0" text="NEWTON WHO ?" textAlignment="RIGHT" textFill="#f54b4b">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>

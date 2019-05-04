@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 
 import hust.soict.ictglobal.miniproject.start.MenuBtnWindowController;
-import hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawController;
+import hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawBtnController;
 import java.io.IOException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
@@ -66,7 +66,7 @@ public class MenuController implements Initializable {
     
     @FXML
     public void handleThirdLawBtnClick() throws IOException {
-        new ThirdLawController().openNewWindow();
+        new ThirdLawBtnController().openNewWindow("ThirdLaw.fxml");
     }
 
     @FXML

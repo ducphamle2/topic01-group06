@@ -49,7 +49,7 @@ public class SixthSceneController implements Initializable {
 
     @FXML
     private ImageView book;
-    
+
     @FXML
     private ImageView newton;
 
@@ -81,7 +81,19 @@ public class SixthSceneController implements Initializable {
         physics.setOpacity(0);
         calText.setOpacity(0);
         phyText.setOpacity(0);
-        
+
+        double temp = parentContainer.getBoundsInParent().getHeight();
+        if (temp >= 600 && temp <= 700) {
+            FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+            FontTextAdjustment.adjustFontTextHeight(textTwo, 0, 0, 30);
+            
+        }
+        double temp2 = parentContainer.getBoundsInParent().getWidth();
+        if (temp2 >= (1276 / 716) * 600 && temp2 <= (1276 / 716) * 600 + 100) {
+            FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+            FontTextAdjustment.adjustFontTextWidth(textTwo, 0, 0, 30);
+        }
+
         // init height and width of components
         double oldHeight = 716.0;
         double calculusHeight = oldHeight / calculus.getFitHeight();
@@ -94,7 +106,7 @@ public class SixthSceneController implements Initializable {
         double physicsWidth = oldWidth / physics.getFitWidth();
         double bookWidth = oldWidth / book.getFitWidth();
         double newtonWidth = oldWidth / newton.getFitWidth();
-        
+
         // listen on the changes of the gridpane height and width
         parentContainer.heightProperty().addListener(new ChangeListener() {
             @Override
@@ -107,11 +119,16 @@ public class SixthSceneController implements Initializable {
                 book.fitHeightProperty().setValue(height / bookHeight);
                 newton.fitHeightProperty().setValue(height / newtonHeight);
                 //text.setPrefHeight(height / (oldHeight / textHeight));
-                
-                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 36);
-                FontTextAdjustment.adjustFontTextHeight(textTwo, _oldHeight, height, 36);
+
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 30);
+                FontTextAdjustment.adjustFontTextHeight(textTwo, _oldHeight, height, 30);
                 FontTextAdjustment.adjustFontTextHeight(calText, _oldHeight, height, 21);
                 FontTextAdjustment.adjustFontTextHeight(phyText, _oldHeight, height, 21);
+                
+                if (height < _oldHeight - 100 && height < oldHeight - 50) {
+                    FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
+                    FontTextAdjustment.adjustFontTextHeight(textTwo, 0, 0, 30);
+                }
             }
         });
 
@@ -120,7 +137,7 @@ public class SixthSceneController implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 double width = (double) newValue;
                 double _oldWidth = (double) oldValue;
-                
+
                 System.out.println("width: " + width);
 
                 System.out.println("old width: " + oldWidth);
@@ -128,11 +145,16 @@ public class SixthSceneController implements Initializable {
                 physics.fitWidthProperty().setValue(width / physicsWidth);
                 book.fitWidthProperty().setValue(width / bookWidth);
                 newton.fitWidthProperty().setValue(width / newtonWidth);
-                
-                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 36);
-                FontTextAdjustment.adjustFontTextWidth(textTwo, _oldWidth, width, 36);
+
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 30);
+                FontTextAdjustment.adjustFontTextWidth(textTwo, _oldWidth, width, 30);
                 FontTextAdjustment.adjustFontTextWidth(calText, _oldWidth, width, 21);
                 FontTextAdjustment.adjustFontTextWidth(phyText, _oldWidth, width, 21);
+                
+                if (width < _oldWidth - 100 && width < oldWidth - 50) {
+                    FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
+                    FontTextAdjustment.adjustFontTextWidth(textTwo, 0, 0, 30);
+                }
             }
         });
 
