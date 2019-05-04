@@ -1,12 +1,12 @@
 package hust.soict.ictglobal.miniproject.secondlaw;
 
-import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.CubicCurveTo;
@@ -38,6 +38,9 @@ public class SecondLawDemoController implements Initializable {
 
     @FXML
     private Circle ball;
+
+    @FXML
+    private Button startBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -85,6 +88,9 @@ public class SecondLawDemoController implements Initializable {
             accelerationText.setText(String.format("Acceleration: %.5f m/s\u00B2", acceleration));
             distanceText.setText(String.format("Distance: %.5f m", distance));
 
+            // disable button
+            startBtn.setDisable(true);
+
             // start animation
             Rotate rotate = new Rotate();
             rotate.setPivotX(kickingLeg.getEndX());
@@ -100,19 +106,26 @@ public class SecondLawDemoController implements Initializable {
 
             timeline.getKeyFrames().addAll(frame1, frame2);
 
-            timeline.play();
+            timeline.playFromStart();
 
             new Thread(() -> {
                 try {
+                    double x = ball.getTranslateX();
+                    double y = ball.getTranslateY();
                     Thread.sleep(250);
-
-                    PathTransition pathTransition = new PathTransition(Duration.millis(1000), ball);
-                    CubicCurveTo curve = new CubicCurveTo(100f, 100f, 200f, 100f, 600f, 600f);
+                    CubicCurveTo curve = new CubicCurveTo(300f, -100f, 500f, -100f, 600f, ball.getCenterY());
                     Path path = new Path();
-                    path.getElements().addAll(new MoveTo(ball.getCenterX(), ball.getCenterY()));
-                    path.getElements().addAll(curve);
-                    pathTransition.setPath(path);
+                    path.getElements().addAll(new MoveTo(ball.getCenterX(), ball.getCenterY()), curve);
+                    PathTransition pathTransition = new PathTransition(Duration.millis(1000), path, ball);
                     pathTransition.play();
+
+                    Thread.sleep(1000);
+
+                    startBtn.setDisable(false);
+                    rotate.angleProperty().setValue(0);
+                    pathTransition.stop();
+                    ball.setTranslateX(x);
+                    ball.setTranslateY(y);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
