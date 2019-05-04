@@ -3,9 +3,11 @@ package hust.soict.ictglobal.miniproject.thirdlaw;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -78,6 +80,17 @@ public class ThirdLawDemoController implements Initializable {
 
     @FXML
     private Group wheel2;
+
+    @FXML
+    private Button startBtn;
+
+    private RotateTransition rotateTransition1;
+
+    private RotateTransition rotateTransition2;
+
+    private TranslateTransition translateTransition1;
+
+    private TranslateTransition translateTransition2;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -176,6 +189,19 @@ public class ThirdLawDemoController implements Initializable {
         String ball1WreightText = ball1Input.getText();
         String ball2WreightText = ball2Input.getText();
         if (!ball1WreightText.equals("") && !ball2WreightText.equals("")) {
+            if (this.rotateTransition1 != null) {
+                this.rotateTransition1.stop();
+                this.rotateTransition2.stop();
+                this.translateTransition1.stop();
+                this.translateTransition2.stop();
+
+                wheel1.setRotate(0);
+                wheel2.setRotate(0);
+
+                wheel1.setTranslateX(0);
+                wheel2.setTranslateX(0);
+            }
+
             int ball1Weight = Integer.parseInt(ball1WreightText);
             int ball2Weight = Integer.parseInt(ball2WreightText);
 
@@ -185,17 +211,71 @@ public class ThirdLawDemoController implements Initializable {
             vOne.setText(String.format("v1' = %.2f", ball1Velocity));
             vTwo.setText(String.format("v2' = %.2f", ball2Velocity));
 
+            startBtn.setDisable(true);
+
             RotateTransition rotateTransition1 = new RotateTransition(Duration.millis(500), wheel1);
-            rotateTransition1.setCycleCount(Animation.INDEFINITE);
             rotateTransition1.setInterpolator(Interpolator.LINEAR);
-            rotateTransition1.setByAngle(360);
+            rotateTransition1.setByAngle(180);
             rotateTransition1.play();
 
             RotateTransition rotateTransition2 = new RotateTransition(Duration.millis(500), wheel2);
-            rotateTransition2.setCycleCount(Animation.INDEFINITE);
             rotateTransition2.setInterpolator(Interpolator.LINEAR);
-            rotateTransition2.setByAngle(-360);
+            rotateTransition2.setByAngle(-180);
             rotateTransition2.play();
+
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.millis(500), wheel1);
+            translateTransition1.setCycleCount(1);
+            translateTransition1.setInterpolator(Interpolator.LINEAR);
+            translateTransition1.setToX(parentContainer.getLayoutBounds().getWidth()/2 - wheel1.getLayoutX() - wheel1.getLayoutBounds().getWidth()/2);
+            translateTransition1.play();
+
+            TranslateTransition translateTransition2 = new TranslateTransition(Duration.millis(500), wheel2);
+            translateTransition2.setCycleCount(1);
+            translateTransition2.setInterpolator(Interpolator.LINEAR);
+            translateTransition2.setToX(-parentContainer.getLayoutBounds().getWidth()/2 + parentContainer.getLayoutBounds().getWidth() - wheel2.getLayoutX() + wheel2.getLayoutBounds().getWidth()/2);
+            translateTransition2.play();
+
+            this.rotateTransition1 = rotateTransition1;
+            this.rotateTransition2 = rotateTransition2;
+            this.translateTransition1 = translateTransition1;
+            this.translateTransition2 = translateTransition2;
+
+            new Thread(() -> {
+                try {
+                    Thread.sleep(500);
+
+                    rotateTransition1.stop();
+                    rotateTransition1.setCycleCount(Animation.INDEFINITE);
+                    rotateTransition1.setFromAngle(180);
+                    rotateTransition1.setByAngle(ball1Velocity > 0 ? 360 : -360);
+                    rotateTransition1.setDuration(Duration.millis(5000 / Math.abs(ball1Velocity) * 30));
+                    rotateTransition1.playFromStart();
+
+                    rotateTransition2.stop();
+                    rotateTransition2.setCycleCount(Animation.INDEFINITE);
+                    rotateTransition2.setFromAngle(-180);
+                    rotateTransition2.setByAngle(ball2Velocity > 0 ? 360 : -360);
+                    rotateTransition2.setDuration(Duration.millis(5000 / Math.abs(ball2Velocity) * 30));
+                    rotateTransition2.playFromStart();
+
+                    translateTransition1.stop();
+                    translateTransition1.setFromX(parentContainer.getLayoutBounds().getWidth()/2 - wheel1.getLayoutX() - wheel1.getLayoutBounds().getWidth()/2);
+                    translateTransition1.setToX(ball1Velocity > 0 ? parentContainer.getLayoutBounds().getWidth() : -parentContainer.getLayoutBounds().getWidth());
+                    translateTransition1.setDuration(Duration.millis(500000 / Math.abs(ball1Velocity)));
+                    translateTransition1.playFromStart();
+
+                    translateTransition2.stop();
+                    translateTransition2.setFromX(-parentContainer.getLayoutBounds().getWidth()/2 + parentContainer.getLayoutBounds().getWidth() - wheel2.getLayoutX() + wheel2.getLayoutBounds().getWidth()/2);
+                    translateTransition2.setToX(ball2Velocity > 0 ? parentContainer.getLayoutBounds().getWidth() : -parentContainer.getLayoutBounds().getWidth());
+                    translateTransition2.setDuration(Duration.millis(500000 / Math.abs(ball2Velocity)));
+                    translateTransition2.playFromStart();
+
+                    Thread.sleep(1000);
+                    startBtn.setDisable(false);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }).start();
         }
     }
 
