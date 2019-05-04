@@ -47,7 +47,7 @@
          </GridPane.margin>
       </Label>
       <TextField fx:id="ball2Input" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="119.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.vgrow="SOMETIMES" />
-      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="72.0" text="Start" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Button onAction="#startDemo" mnemonicParsing="false" prefHeight="38.0" prefWidth="72.0" text="Start" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="70.0" />
          </GridPane.margin>
@@ -70,16 +70,16 @@
             <Insets bottom="20.0" />
          </GridPane.margin>
       </Button>
-      <Group fx:id="wheel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Group fx:id="wheel1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <children>
-            <Circle fx:id="ball" fill="#8495a4" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="ball1" fill="#8495a4" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
             <Line fx:id="lineTwo" endX="58.0" startX="-58.5" />
             <Line fx:id="line" endY="58.0" startY="-58.0" />
          </children>
       </Group>
-      <Group fx:id="wheel1" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Group fx:id="wheel2" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <children>
-            <Circle fx:id="ballTwo" fill="#8495a4" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="ball2" fill="#8495a4" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
             <Line fx:id="lineFour" endX="58.0" startX="-58.5" />
             <Line fx:id="lineThree" endY="58.0" startY="-58.0" />
          </children>

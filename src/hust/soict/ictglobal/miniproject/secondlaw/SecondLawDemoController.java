@@ -1,20 +1,19 @@
 package hust.soict.ictglobal.miniproject.secondlaw;
 
 import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
-import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.CubicCurveTo;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
-import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -48,40 +47,42 @@ public class SecondLawDemoController implements Initializable {
 
     @FXML
     private Circle ball;
-    
+
+    @FXML
+    private Button startBtn;
+
     @FXML
     private GridPane parentContainer;
-    
+
     @FXML
     private Label force;
-    
+
     @FXML
     private Label weight;
-    
+
     @FXML
     private Line line;
-    
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
         // init height and width of components
         double oldHeight = 716.0;
         double ballHeight = oldHeight / (ball.getRadius());
-        
+
         double oldWidth = 1276.0;
         double ballWidth = oldWidth / (ball.getRadius());
         System.out.println("width of textField: " + forceInput.getPrefWidth());
-        
+
         // listen on the changes of the gridpane height and width
         parentContainer.heightProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 double height = (double) newValue;
                 double _oldHeight = (double) oldValue;
-                
+
                 ball.setRadius(height / ballHeight);
-                
+
                 FontTextAdjustment.adjustFontTextHeight(accelerationText, _oldHeight, height, 21);
                 FontTextAdjustment.adjustFontTextHeight(distanceText, _oldHeight, height, 21);
                 FontTextAdjustment.adjustFontTextHeight(force, _oldHeight, height, 20);
@@ -94,26 +95,15 @@ public class SecondLawDemoController implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 double width = (double) newValue;
                 double _oldWidth = (double) oldValue;
-                
+
                 ball.setRadius(width / ballWidth); // change size of the ball
                 FontTextAdjustment.adjustFontTextWidth(accelerationText, _oldWidth, width, 21);
                 FontTextAdjustment.adjustFontTextWidth(distanceText, _oldWidth, width, 21);
                 FontTextAdjustment.adjustFontTextWidth(force, _oldWidth, width, 20);
                 FontTextAdjustment.adjustFontTextWidth(weight, _oldWidth, width, 20);
-                
+
                 line.setScaleX(width);
             }
-        });
-
-        forceInput.textProperty().addListener((observable, oldValue, newValue) -> {
-            String text = newValue;
-            if (!newValue.matches("\\d*")) {
-                text = newValue.replaceAll("[^\\d]", "");
-            }
-            if (!text.equals("") && Integer.parseInt(text) > 5000) {
-                text = "5000";
-            }
-            forceInput.setText(text);
         });
 
         forceInput.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -160,6 +150,9 @@ public class SecondLawDemoController implements Initializable {
             accelerationText.setText(String.format("Acceleration: %.5f m/s\u00B2", acceleration));
             distanceText.setText(String.format("Distance: %.5f m", distance));
 
+            // disable button
+            startBtn.setDisable(true);
+
             // start animation
             Rotate rotate = new Rotate();
             rotate.setPivotX(kickingLeg.getEndX());
@@ -175,28 +168,37 @@ public class SecondLawDemoController implements Initializable {
 
             timeline.getKeyFrames().addAll(frame1, frame2);
 
+            timeline.playFromStart();
+
             timeline.play();
 
             new Thread(() -> {
                 try {
+                    double x = ball.getTranslateX();
+                    double y = ball.getTranslateY();
                     Thread.sleep(250);
-
-                    PathTransition pathTransition = new PathTransition(Duration.millis(1000), ball);
-                    CubicCurveTo curve = new CubicCurveTo(100f, 100f, 200f, 100f, 600f, 600f);
+                    CubicCurveTo curve = new CubicCurveTo(300f, -100f, 500f, -100f, 600f, ball.getCenterY());
                     Path path = new Path();
-                    path.getElements().addAll(new MoveTo(ball.getCenterX(), ball.getCenterY()));
-                    path.getElements().addAll(curve);
-                    pathTransition.setPath(path);
+                    path.getElements().addAll(new MoveTo(ball.getCenterX(), ball.getCenterY()), curve);
+                    PathTransition pathTransition = new PathTransition(Duration.millis(1000), path, ball);
                     pathTransition.play();
+
+                    Thread.sleep(1000);
+
+                    startBtn.setDisable(false);
+                    rotate.angleProperty().setValue(0);
+                    pathTransition.stop();
+                    ball.setTranslateX(x);
+                    ball.setTranslateY(y);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
             }).start();
         }
     }
-    
+
     @FXML
-    private void onActionHelpClicked() throws IOException{
+    private void onActionHelpClicked() {
         Stage stage = new Stage();
         // create a new window using FirstLaw gui
         try {

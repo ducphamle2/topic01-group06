@@ -50,7 +50,7 @@ public class LoadScene {
         Parent secondView;
         try {
             System.out.println("Start of try");
-            secondView = (GridPane) FXMLLoader.load(getClass().getResource(scene)); // load new pane
+            secondView = (GridPane) FXMLLoader.load(getClass().getResource("/hust/soict/ictglobal/miniproject/start/" + scene)); // load new pane
             if (secondView == null) {
                 System.out.println("Second view is null due to getResource wrong input: " + scene);
             }
