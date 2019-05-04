@@ -24,7 +24,7 @@
          </image>
       </ImageView>
       <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleButtonClick" text="Next" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
-      <Label fx:id="text" alignment="CENTER" prefHeight="75.0" prefWidth="1235.0" text="Issac Newton was born on Jan 4, 1643, Woolsthorpe, England" textFill="WHITE" wrapText="true" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="text" alignment="CENTER" prefHeight="75.0" prefWidth="1235.0" text="Issac Newton was born on Jan 4, 1643, Woolsthorpe, England" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
