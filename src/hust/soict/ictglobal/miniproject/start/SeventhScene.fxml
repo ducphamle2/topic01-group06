@@ -12,13 +12,13 @@
 
 <GridPane fx:id="parentContainer" onKeyPressed="#handleKeyTyped" prefHeight="716.0" prefWidth="1276.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ictglobal.miniproject.start.SeventhSceneController">
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="763.0" minWidth="10.0" prefWidth="640.0" percentWidth="80.0"/>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="636.0" minWidth="10.0" prefWidth="636.0" percentWidth="80.0"/>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="763.0" minWidth="10.0" percentWidth="80.0" prefWidth="640.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="636.0" minWidth="10.0" percentWidth="80.0" prefWidth="636.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" percentHeight="80.0"/>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" percentHeight="80.0"/>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" percentHeight="80.0"/>
+      <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
       <Button fx:id="prevButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" GridPane.valignment="TOP" />
@@ -33,7 +33,7 @@
             <Image url="@../images/sky_diving.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="divingText" prefHeight="53.0" prefWidth="105.0" text="Sky diving" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="divingText" alignment="CENTER" prefHeight="95.0" prefWidth="188.0" text="Sky diving" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Italic" size="21.0" />
          </font>
@@ -46,7 +46,7 @@
             <Image url="@../images/collision.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="collisionText" prefHeight="53.0" prefWidth="80.0" text="Collision" GridPane.halignment="RIGHT" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="collisionText" alignment="CENTER" prefHeight="115.0" prefWidth="159.0" text="Collision" GridPane.halignment="RIGHT" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Italic" size="21.0" />
          </font>

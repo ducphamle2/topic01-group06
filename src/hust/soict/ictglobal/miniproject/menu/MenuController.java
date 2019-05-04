@@ -5,18 +5,17 @@
  */
 package hust.soict.ictglobal.miniproject.menu;
 
+import hust.soict.ictglobal.miniproject.firstlaw.FirstLawBtnController;
+import hust.soict.ictglobal.miniproject.secondlaw.SecondLawBtnController;
 import java.net.URL;
-import java.util.ResourceBundle;
-
-import hust.soict.ictglobal.miniproject.secondlaw.SecondLawController;
-import hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 
-import hust.soict.ictglobal.miniproject.firstlaw.FirstLawController;
-import hust.soict.ictglobal.miniproject.start.StartBtnWindowController;
+import hust.soict.ictglobal.miniproject.start.MenuBtnWindowController;
+import hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawController;
 import java.io.IOException;
+import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -45,7 +44,7 @@ public class MenuController implements Initializable {
             firstBtnLaw.setDisable(false);
             secondBtnLaw.setDisable(false);
             thirdBtnLaw.setDisable(false);
-            new StartBtnWindowController().openNewWindow();
+            new MenuBtnWindowController().openNewWindow("StartBtnWindow.fxml");
         }
         System.out.println("Clicked");
     }
@@ -56,22 +55,22 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    public void handleFirstLawBtnClick() {
-        new FirstLawController().openNewWindow();
+    public void handleFirstLawBtnClick() throws IOException {
+        new FirstLawBtnController().openNewWindow("FirstLaw.fxml");
     }
-
+    
     @FXML
-    private void handleSecondLawBtnClick() {
-        new SecondLawController().openNewWindow();
+    public void handleSecondLawBtnClick() throws IOException {
+        new SecondLawBtnController().openNewWindow("SecondLaw.fxml");
     }
-
+    
     @FXML
-    private void handleThirdLawBtnClick() {
+    public void handleThirdLawBtnClick() throws IOException {
         new ThirdLawController().openNewWindow();
     }
 
     @FXML
-    public void handleAboutBtnClick() {
+    public void handleAboutBtnClick() throws IOException {
         Stage stage = new Stage();
         // create a new window using FirstLaw gui
         try {
@@ -95,5 +94,4 @@ public class MenuController implements Initializable {
         secondBtnLaw.setDisable(true);
         thirdBtnLaw.setDisable(true);
     }
-
 }

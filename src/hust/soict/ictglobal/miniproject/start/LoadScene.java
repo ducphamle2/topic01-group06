@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hust.soict.ictglobal.miniproject.utils;
+package hust.soict.ictglobal.miniproject.start;
 
-import hust.soict.ictglobal.miniproject.start.StartBtnWindowController;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.GridPane;
@@ -39,7 +36,7 @@ public class LoadScene {
             parentContainer.getScene().setRoot(secondView);
             //curStage.setScene(newScene);
         } catch (IOException ex) {
-            Logger.getLogger(StartBtnWindowController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
     
@@ -60,7 +57,7 @@ public class LoadScene {
             parentContainer.getScene().setRoot(secondView);
             //curStage.setScene(newScene);
         } catch (IOException ex) {
-            Logger.getLogger(StartBtnWindowController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 }

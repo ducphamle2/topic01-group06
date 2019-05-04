@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hust.soict.ictglobal.miniproject.start;
+package hust.soict.ictglobal.miniproject.firstlaw;
 
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -13,26 +13,26 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
  *
  * @author Duc Pham Le
  */
-public class StartBtnWindowController {
-
-    public void openNewWindow() throws IOException {
+public class FirstLawBtnController {
+    
+    public void openNewWindow(String fxmlName) throws IOException {
         Stage stage = new Stage();
         // create a new window using FirstLaw gui
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("StartBtnWindow.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlName));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             //stage.setMaximized(true);
             //stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL); // prevent from using the main windows
-            stage.setTitle("Biography of Issac Newton");
+            stage.setTitle("First law demo");
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    
 }

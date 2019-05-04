@@ -7,7 +7,6 @@ package hust.soict.ictglobal.miniproject.start;
 
 import hust.soict.ictglobal.miniproject.utils.FadedTransition;
 import hust.soict.ictglobal.miniproject.utils.FontTextAdjustment;
-import hust.soict.ictglobal.miniproject.utils.LoadScene;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
