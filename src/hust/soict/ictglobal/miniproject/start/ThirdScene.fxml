@@ -42,7 +42,7 @@
             <Image url="@../images/kid_with_grandparents.jpg" />
          </image>
          <GridPane.margin>
-            <Insets top="50.0" />
+            <Insets top="60.0" />
          </GridPane.margin>
       </ImageView>
       <ImageView fx:id="couple" fitHeight="261.0" fitWidth="166.0" onMouseClicked="#handleMouseClicked" opacity="0.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="SOMETIMES">
@@ -61,7 +61,7 @@
             <Insets top="70.0" />
          </GridPane.margin>
       </ImageView>
-      <ImageView fx:id="textbox" fitHeight="181.0" fitWidth="172.0" onMouseClicked="#handleMouseClicked" opacity="0.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+      <ImageView fx:id="textbox" fitHeight="157.0" fitWidth="159.0" onMouseClicked="#handleMouseClicked" opacity="0.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
          <image>
             <Image url="@../images/chatbox.png" />
          </image>
