@@ -177,7 +177,7 @@ public class SecondLawDemoController implements Initializable {
                     double x = ball.getTranslateX();
                     double y = ball.getTranslateY();
                     Thread.sleep(250);
-                    CubicCurveTo curve = new CubicCurveTo(distance * 10, -125f, distance * 35, -125f, distance * 50, ball.getCenterY());
+                    CubicCurveTo curve = new CubicCurveTo(distance * 10, -50f - 0.75 * distance, distance * 35, -50f - 0.75 * distance, distance * 50, ball.getCenterY());
                     Path path = new Path();
                     path.getElements().addAll(new MoveTo(ball.getCenterX(), ball.getCenterY()), curve);
                     PathTransition pathTransition = new PathTransition(Duration.millis(1000 * flyTime), path, ball);
