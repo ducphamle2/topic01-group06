@@ -19,7 +19,7 @@
       <RowConstraints maxHeight="448.0" minHeight="10.0" prefHeight="162.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <Label prefHeight="83.0" prefWidth="946.0" text="There are two inputs and a kick button. In order to run the demo both inputs must NOT BE EMPTY !" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Label prefHeight="83.0" prefWidth="946.0" text="There are two inputs and a kick button. In order to run the demo both inputs must NOT BE EMPTY !" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="21.0" />
          </font>
