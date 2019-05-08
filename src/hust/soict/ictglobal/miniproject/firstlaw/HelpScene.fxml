@@ -18,7 +18,7 @@
       <RowConstraints maxHeight="448.0" minHeight="10.0" prefHeight="211.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label prefHeight="118.0" prefWidth="876.0" text="There are three buttons: RESET, PUSH LEFT, PUSH RIGHT" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Label prefHeight="118.0" prefWidth="876.0" text="There are three buttons: RESET, PUSH LEFT, PUSH RIGHT. A force will affect the ball briefly when you click the button, otherwise there is no other force acting on the ball" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="21.0" />
          </font>
