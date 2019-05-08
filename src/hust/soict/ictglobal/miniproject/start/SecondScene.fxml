@@ -24,9 +24,9 @@
       </ImageView>
       <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Next" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
       <Button fx:id="prevButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" GridPane.valignment="TOP" />
-      <Label fx:id="text" prefHeight="150.0" prefWidth="727.0" text="His father was a farmer, and he died 3 months prior to Newton’s birth" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="text" prefHeight="150.0" prefWidth="998.0" text="His father was a farmer, and he died 3 months prior to Newton’s birth" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
-            <Font name="System Bold" size="42.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
    </children>

@@ -54,5 +54,10 @@
             <Glow />
          </effect>
       </Button>
+      <Button alignment="CENTER" layoutX="340.0" layoutY="407.0" onAction="#handleExitBtnClick" onMouseClicked="#onMouseClicked" prefHeight="41.0" prefWidth="99.0" text="Exit">
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
     </children>
 </AnchorPane>

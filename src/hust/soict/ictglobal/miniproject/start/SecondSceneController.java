@@ -77,7 +77,7 @@ public class SecondSceneController implements Initializable {
 
                 newton.fitHeightProperty().setValue(height / newtonHeight);
                 
-                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 36);
+                FontTextAdjustment.adjustFontTextHeight(text, _oldHeight, height, 30);
             }
         });
 
@@ -90,7 +90,7 @@ public class SecondSceneController implements Initializable {
                 System.out.println("old width: " + oldWidth);
                 newton.fitWidthProperty().setValue(width / newtonWidth);
                 
-                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 36);
+                FontTextAdjustment.adjustFontTextWidth(text, _oldWidth, width, 30);
             }
         });
     }

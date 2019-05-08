@@ -16,27 +16,30 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="637.0" minWidth="10.0" percentWidth="80.0" prefWidth="637.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="211.0" minHeight="10.0" percentHeight="80.0" prefHeight="190.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="174.0" minHeight="10.0" percentHeight="80.0" prefHeight="174.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="139.0" minHeight="10.0" percentHeight="80.0" prefHeight="113.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="191.0" minHeight="10.0" percentHeight="80.0" prefHeight="167.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="115.0" minHeight="10.0" percentHeight="80.0" prefHeight="72.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
       <Button fx:id="prevButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Back" GridPane.valignment="TOP" />
       <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleBtnClick" text="Next" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
-      <Label fx:id="text" prefHeight="128.0" prefWidth="954.0" text="He invested much of his time on developing his theories on caculus, gravity, and laws of motion" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="text" prefHeight="105.0" prefWidth="954.0" text="He invested much of his time on developing his theories on caculus, gravity, and laws of motion" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <ImageView fx:id="newton" fitHeight="400.0" fitWidth="402.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+      <ImageView fx:id="newton" fitHeight="400.0" fitWidth="402.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
          <image>
             <Image url="@../images/discovery.jpg" />
          </image>
          <GridPane.margin>
-            <Insets left="150.0" />
+            <Insets left="200.0" />
          </GridPane.margin>
       </ImageView>
-      <ImageView fx:id="calculus" fitHeight="213.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+      <ImageView fx:id="calculus" fitHeight="213.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.vgrow="SOMETIMES">
          <image>
             <Image url="@../images/calculus.jpg" />
          </image>
@@ -44,20 +47,7 @@
             <Insets top="120.0" />
          </GridPane.margin>
       </ImageView>
-      <Label fx:id="calText" alignment="CENTER" prefHeight="53.0" prefWidth="165.0" text="Calculus" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="SOMETIMES">
-         <font>
-            <Font name="System Italic" size="21.0" />
-         </font>
-         <GridPane.margin>
-            <Insets top="50.0" />
-         </GridPane.margin>
-      </Label>
-      <ImageView fx:id="physics" fitHeight="179.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
-         <image>
-            <Image url="@../images/law.jpg" />
-         </image>
-      </ImageView>
-      <Label fx:id="phyText" alignment="CENTER" prefHeight="53.0" prefWidth="213.0" text="Physics" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="calText" alignment="CENTER" prefHeight="53.0" prefWidth="165.0" text="Calculus" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Italic" size="21.0" />
          </font>
@@ -65,15 +55,28 @@
             <Insets />
          </GridPane.margin>
       </Label>
-      <ImageView fx:id="book" fitHeight="533.0" fitWidth="392.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+      <ImageView fx:id="physics" fitHeight="179.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.valignment="BASELINE" GridPane.vgrow="SOMETIMES">
+         <image>
+            <Image url="@../images/law.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="phyText" alignment="CENTER" prefHeight="53.0" prefWidth="213.0" text="Physics" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+         <font>
+            <Font name="System Italic" size="21.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="20.0" />
+         </GridPane.margin>
+      </Label>
+      <ImageView fx:id="book" fitHeight="533.0" fitWidth="392.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="3" GridPane.vgrow="SOMETIMES">
          <image>
             <Image url="@../images/book.jpg" />
          </image>
          <GridPane.margin>
-            <Insets bottom="170.0" />
+            <Insets bottom="220.0" />
          </GridPane.margin>
       </ImageView>
-      <Label fx:id="textTwo" alignment="CENTER" prefHeight="127.0" prefWidth="1125.0" text="The three laws were then first compiled in his Philosophiæ Naturalis Principia Mathematica book, and published in 1687" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+      <Label fx:id="textTwo" alignment="CENTER" prefHeight="104.0" prefWidth="1125.0" text="The three laws were then first compiled in his Philosophiæ Naturalis Principia Mathematica book, and published in 1687" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
