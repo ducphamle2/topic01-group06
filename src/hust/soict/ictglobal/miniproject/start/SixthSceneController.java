@@ -86,12 +86,16 @@ public class SixthSceneController implements Initializable {
         if (temp >= 300 && temp <= 550) {
             FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
             FontTextAdjustment.adjustFontTextHeight(textTwo, 0, 0, 30);
-            
+            FontTextAdjustment.adjustFontTextHeight(calText, 0, 0, 21);
+            FontTextAdjustment.adjustFontTextHeight(phyText, 0, 0, 21);
+
         }
         double temp2 = parentContainer.getBoundsInParent().getWidth();
         if (temp2 >= 300 * 1.56 && temp2 <= 300 * 1.56 + 250) {
             FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
             FontTextAdjustment.adjustFontTextWidth(textTwo, 0, 0, 30);
+            FontTextAdjustment.adjustFontTextHeight(calText, 0, 0, 21);
+            FontTextAdjustment.adjustFontTextHeight(phyText, 0, 0, 21);
         }
 
         // init height and width of components
@@ -124,10 +128,12 @@ public class SixthSceneController implements Initializable {
                 FontTextAdjustment.adjustFontTextHeight(textTwo, _oldHeight, height, 30);
                 FontTextAdjustment.adjustFontTextHeight(calText, _oldHeight, height, 21);
                 FontTextAdjustment.adjustFontTextHeight(phyText, _oldHeight, height, 21);
-                
+
                 if (height < _oldHeight - 100 && height < oldHeight - 50) {
                     FontTextAdjustment.adjustFontTextHeight(text, 0, 0, 30);
                     FontTextAdjustment.adjustFontTextHeight(textTwo, 0, 0, 30);
+                    FontTextAdjustment.adjustFontTextHeight(calText, 0, 0, 21);
+                    FontTextAdjustment.adjustFontTextHeight(phyText, 0, 0, 21);
                 }
             }
         });
@@ -150,10 +156,12 @@ public class SixthSceneController implements Initializable {
                 FontTextAdjustment.adjustFontTextWidth(textTwo, _oldWidth, width, 30);
                 FontTextAdjustment.adjustFontTextWidth(calText, _oldWidth, width, 21);
                 FontTextAdjustment.adjustFontTextWidth(phyText, _oldWidth, width, 21);
-                
+
                 if (width < _oldWidth - 100 && width < oldWidth - 50) {
                     FontTextAdjustment.adjustFontTextWidth(text, 0, 0, 30);
                     FontTextAdjustment.adjustFontTextWidth(textTwo, 0, 0, 30);
+                    FontTextAdjustment.adjustFontTextHeight(calText, 0, 0, 21);
+                    FontTextAdjustment.adjustFontTextHeight(phyText, 0, 0, 21);
                 }
             }
         });

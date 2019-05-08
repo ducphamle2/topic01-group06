@@ -83,9 +83,9 @@ public class FinalSceneController implements Initializable {
 
                 newton.fitHeightProperty().setValue(height / newtonHeight);
                 
-                FontTextAdjustment.adjustFontTextHeight(firstText, _oldHeight, height, 36);
-                FontTextAdjustment.adjustFontTextHeight(secondText, _oldHeight, height, 36);
-                FontTextAdjustment.adjustFontTextHeight(thirdText, _oldHeight, height, 36);
+                FontTextAdjustment.adjustFontTextHeight(firstText, _oldHeight, height, 30);
+                FontTextAdjustment.adjustFontTextHeight(secondText, _oldHeight, height, 30);
+                FontTextAdjustment.adjustFontTextHeight(thirdText, _oldHeight, height, 30);
             }
         });
         
@@ -98,9 +98,9 @@ public class FinalSceneController implements Initializable {
                 System.out.println("old width: " + oldWidth);
                 newton.fitWidthProperty().setValue(width / newtonWidth);
                 
-                FontTextAdjustment.adjustFontTextWidth(firstText, _oldWidth, width, 36);
-                FontTextAdjustment.adjustFontTextWidth(secondText, _oldWidth, width, 36);
-                FontTextAdjustment.adjustFontTextWidth(thirdText, _oldWidth, width, 36);
+                FontTextAdjustment.adjustFontTextWidth(firstText, _oldWidth, width, 30);
+                FontTextAdjustment.adjustFontTextWidth(secondText, _oldWidth, width, 30);
+                FontTextAdjustment.adjustFontTextWidth(thirdText, _oldWidth, width, 30);
             }
         });
 
