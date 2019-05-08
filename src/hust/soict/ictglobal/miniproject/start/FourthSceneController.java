@@ -138,24 +138,24 @@ public class FourthSceneController implements Initializable {
             }
         });
         
-        FadeTransition fadeTransition = FadedTransition.transition(1, 0, 1);
+        FadeTransition fadeTransition = FadedTransition.transition(0, 0, 1);
         fadeTransition.setNode(kidStudying);
         fadeTransition.play();
         
         // for other images
-        fadeTransition = FadedTransition.transition(3, 0, 1);
+        fadeTransition = FadedTransition.transition(2, 0, 1);
         fadeTransition.setNode(school);
         fadeTransition.play();
 
-        fadeTransition = FadedTransition.transition(3, 0, 1);
+        fadeTransition = FadedTransition.transition(2, 0, 1);
         fadeTransition.setNode(text);
         fadeTransition.play();
 
-        fadeTransition = FadedTransition.transition(5, 0, 1);
+        fadeTransition = FadedTransition.transition(4, 0, 1);
         fadeTransition.setNode(latin);
         fadeTransition.play();
 
-        fadeTransition = FadedTransition.transition(5, 0, 1);
+        fadeTransition = FadedTransition.transition(4, 0, 1);
         fadeTransition.setNode(math);
         fadeTransition.play();
     }

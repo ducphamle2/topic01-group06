@@ -33,9 +33,15 @@ public class FontTextAdjustment {
                 Font newFont = Font.font("Arial", FontWeight.BOLD, (text.getFont().getSize() - 0.05));
                 text.setFont(newFont);
             }
-            if (newHeight == 0  && oldHeight == 0) {
-                Font newFont = Font.font("Arial", FontWeight.BOLD, 22);
-                text.setFont(newFont);
+            if (newHeight == 0 && oldHeight == 0) {
+                if (initFontSize < 22) {
+                    Font newFont = Font.font("Arial", FontWeight.BOLD, 17);
+                    text.setFont(newFont);
+                } else {
+                    Font newFont = Font.font("Arial", FontWeight.BOLD, 22);
+                    text.setFont(newFont);
+                }
+
             }
         }
 
@@ -68,9 +74,14 @@ public class FontTextAdjustment {
                 Font newFont = Font.font("Arial", FontWeight.BOLD, text.getFont().getSize() - 0.05);
                 text.setFont(newFont);
             }
-            if (newWidth == 0  && oldWidth == 0) {
-                Font newFont = Font.font("Arial", FontWeight.BOLD, 22);
-                text.setFont(newFont);
+            if (newWidth == 0 && oldWidth == 0) {
+                if (initFontSize < 22) {
+                    Font newFont = Font.font("Arial", FontWeight.BOLD, 17);
+                    text.setFont(newFont);
+                } else {
+                    Font newFont = Font.font("Arial", FontWeight.BOLD, 22);
+                    text.setFont(newFont);
+                }
             }
         }
 
@@ -79,7 +90,7 @@ public class FontTextAdjustment {
             text.setFont(newFont);
         }
         if (newWidth >= originalWidth || text.getFont().getSize() >= initFontSize) {
-            text.setFont(Font.font("Arial", FontWeight.BOLD, initFontSize)); 
+            text.setFont(Font.font("Arial", FontWeight.BOLD, initFontSize));
         }
     }
 
@@ -138,7 +149,7 @@ public class FontTextAdjustment {
             text.setFont(newFont);
         }
         if (newWidth >= originalWidth || text.getFont().getSize() >= initFontSize) {
-            text.setFont(Font.font("Arial", FontWeight.BOLD, initFontSize)); 
+            text.setFont(Font.font("Arial", FontWeight.BOLD, initFontSize));
         }
     }
 }

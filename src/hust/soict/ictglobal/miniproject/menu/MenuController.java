@@ -5,29 +5,21 @@
  */
 package hust.soict.ictglobal.miniproject.menu;
 
-import hust.soict.ictglobal.miniproject.firstlaw.FirstLawBtnController;
-import hust.soict.ictglobal.miniproject.secondlaw.SecondLawBtnController;
 import java.net.URL;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 
-import hust.soict.ictglobal.miniproject.start.MenuBtnWindowController;
-import hust.soict.ictglobal.miniproject.thirdlaw.ThirdLawBtnController;
+import hust.soict.ictglobal.miniproject.utils.StageController;
 import java.io.IOException;
 import java.util.ResourceBundle;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 /**
  *
  * @author Duc Pham Le
  */
-public class MenuController implements Initializable {
+public class MenuController extends StageController implements Initializable {
 
     @FXML
     private Button firstBtnLaw;
@@ -44,7 +36,7 @@ public class MenuController implements Initializable {
             firstBtnLaw.setDisable(false);
             secondBtnLaw.setDisable(false);
             thirdBtnLaw.setDisable(false);
-            new MenuBtnWindowController().openNewWindow("StartBtnWindow.fxml");
+            openNewWindow(true, "Biography of Issac Newton", "/hust/soict/ictglobal/miniproject/start/StartBtnWindow.fxml");
         }
         System.out.println("Clicked");
     }
@@ -56,35 +48,27 @@ public class MenuController implements Initializable {
 
     @FXML
     public void handleFirstLawBtnClick() throws IOException {
-        new FirstLawBtnController().openNewWindow("FirstLaw.fxml");
+        openNewWindow(true, "First law demo", "/hust/soict/ictglobal/miniproject/firstlaw/FirstLaw.fxml");
     }
     
     @FXML
     public void handleSecondLawBtnClick() throws IOException {
-        new SecondLawBtnController().openNewWindow("SecondLaw.fxml");
+        openNewWindow(true, "Second law demo", "/hust/soict/ictglobal/miniproject/secondlaw/SecondLaw.fxml");
     }
     
     @FXML
     public void handleThirdLawBtnClick() throws IOException {
-        new ThirdLawBtnController().openNewWindow("ThirdLaw.fxml");
+        openNewWindow(true, "Third law demo", "/hust/soict/ictglobal/miniproject/thirdlaw/ThirdLaw.fxml");
     }
 
     @FXML
     public void handleAboutBtnClick() throws IOException {
-        Stage stage = new Stage();
-        // create a new window using FirstLaw gui
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("AboutStage.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.setTitle("About us");
-            stage.initModality(Modality.APPLICATION_MODAL); // prevent from using the main windows
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        openNewWindow(false, "About us", "/hust/soict/ictglobal/miniproject/menu/AboutStage.fxml");
+    }
+    
+    @FXML
+    public void handleExitBtnClick() {
+        System.exit(0);
     }
 
     @Override
