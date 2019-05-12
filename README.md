@@ -10,5 +10,5 @@
 - Nguyễn Đức Anh: Implement demos for 3 Newton's laws and draw use case diagram
 
 ## How to use
-
-In each demo there is a help button which shows the tutorial for that demo
+- The class diagram and usecase diagram is in the classpath hust/soict/ictglobal/miniproject/diagrams
+- In each demo there is a help button which shows the tutorial for that demo, so that we decide to not include a separate manual
