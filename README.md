@@ -1,5 +1,7 @@
 # OOP project - group 6 - topic 1 - Newton's laws
 
+Link to the video demonstrating the app: https://www.youtube.com/watch?v=XQ4bKVRPYDw
+
 ## Members
 
 - Phạm Lê Đức - 20161128
