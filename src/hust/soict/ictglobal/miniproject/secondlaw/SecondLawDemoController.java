@@ -75,7 +75,7 @@ public class SecondLawDemoController implements Initializable {
         System.out.println("width of textField: " + forceInput.getPrefWidth());
 
         // listen on the changes of the gridpane height and width
-        parentContainer.heightProperty().addListener(new ChangeListener() {
+        parentContainer.heightProperty().addListener(new ChangeListener<Object>() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 double height = (double) newValue;
@@ -90,7 +90,7 @@ public class SecondLawDemoController implements Initializable {
             }
         });
 
-        parentContainer.widthProperty().addListener(new ChangeListener() {
+        parentContainer.widthProperty().addListener(new ChangeListener<Object>() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 double width = (double) newValue;

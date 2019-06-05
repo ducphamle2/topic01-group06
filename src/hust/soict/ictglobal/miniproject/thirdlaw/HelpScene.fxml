@@ -57,7 +57,7 @@
             <Insets left="40.0" />
          </GridPane.margin>
       </Label>
-      <Label prefHeight="96.0" prefWidth="936.0" text="+) Note: velocity is positive if the ball go from left to right and vice versa" wrapText="true" GridPane.rowIndex="5" GridPane.valignment="TOP">
+      <Label prefHeight="96.0" prefWidth="936.0" text="+) Note: velocity is positive if the ball go from left to right and vice versa. The velocity after collision is calculated using collision formula" wrapText="true" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <font>
             <Font name="System Italic" size="19.0" />
          </font>
